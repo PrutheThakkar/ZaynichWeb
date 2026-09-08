@@ -1,0 +1,433 @@
+.safety-profile {
+  --safety-purple: #793088;
+  container: safety-page / inline-size;
+  min-width: 0;
+  width: 100%;
+  color: #171717;
+  font-family: "Montserrat", Arial, sans-serif;
+  text-align: center;
+  font-size: 20px;
+
+  sup { font-size: .55em; vertical-align: super; }
+  p { margin: 0; }
+
+  &__banner {
+    min-height: 240px;
+    height: clamp(200px, 20.5cqw, 300px);
+    display: grid;
+    place-items: center;
+    background: #7d2b8b;
+    color: white;
+    font: 400 clamp(64px, 11cqw, 160px)/1 Arial, sans-serif;
+  }
+
+  &__study {
+    padding: 38px 0 66px;
+    background: radial-gradient(ellipse at 64% 35%, #fff 0%, #fdf7ff 48%, #f5e9fc 100%);
+    h1 { margin: 0 24px 54px; font-weight: 400; font-size: clamp(30px, 3.6cqw, 52px); line-height: 1.2; color: var(--safety-purple); }
+  }
+
+  &__intro {
+    position: relative;
+    width: 86%;
+    max-width: 1230px;
+    margin: 0 auto 38px;
+    padding: 28px 24px;
+    border-radius: 14px;
+    border-bottom: 2px solid #bd94c9;
+    background: white;
+    line-height: 1.3;
+    &::before, &::after { content: ""; position: absolute; top: 50%; width: 6px; height: 6px; border-radius: 50%; background: var(--safety-purple); }
+    &::before { left: -2px; }
+    &::after { right: -2px; }
+  }
+
+  &__cohorts { max-width: 1440px; display: grid; grid-template-columns: 1fr 1fr; margin: 0 auto 40px; }
+  &__cohort {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(12px, 2cqw, 30px);
+    padding: 0 24px;
+    position: relative;
+    &:first-child::after { content: ""; position: absolute; right: 0; height: 80%; border-right: 2px dashed #9654a7; }
+  }
+  &__people { display: grid; grid-template-columns: repeat(8, 1fr); gap: 5px; color: #cfaddc; min-width: 0; flex: 1; max-width: 220px; svg { width: 100%; height: auto; } }
+  &__count {
+    flex-shrink: 0;
+    strong { display: block; font: 400 clamp(60px, 8.5cqw, 124px)/1.05 Arial, sans-serif; color: transparent; -webkit-text-stroke: 1.5px #171717; }
+    span { display: block; font-size: 1.2em; }
+  }
+  &__treatment {
+    position: relative;
+    flex: 0 0 clamp(110px, 11cqw, 160px);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--safety-purple);
+    color: white;
+    font-size: .9em;
+    line-height: 1.15;
+    &-outline {
+      position: absolute;
+      inset: -9px;
+      width: calc(100% + 18px);
+      height: calc(100% + 18px);
+      pointer-events: none;
+    }
+  }
+  &__cohort--comparator {
+    .safety-profile__people { order: 3; color: #c3c7c7; }
+    .safety-profile__treatment { background: #838586; }
+  }
+  &__duration { padding: 0 24px; }
+  &__reactions { padding: 38px 24px 76px; }
+  &__reactions h2 { max-width: 665px; margin: 0 auto 28px; padding: 19px 24px; border: 2px solid #6183ff; border-radius: 50px; color: var(--safety-purple); font-size: clamp(24px, 2.1cqw, 30px); font-weight: 400; }
+  &__summary { line-height: 1.4; span { color: var(--safety-purple); } }
+  &__table-wrap { max-width: 950px; margin: 48px auto 64px; border: 1.5px solid #b989c7; border-radius: 46px; position: relative; isolation: isolate;
+    &::before { content: ""; position: absolute; z-index: -1; top: -13px; bottom: -18px; left: 33.333%; width: 33.333%; border-radius: 38px; background: var(--safety-purple); box-shadow: 0 2px 9px #0005; }
+  }
+  table { border-collapse: separate; border-spacing: 0; width: 100%; table-layout: fixed; font-size: inherit; }
+  th, td { padding: 14px 12px; font-weight: 400; text-align: center; border: 0; background: transparent; }
+  thead th { padding-top: 20px; padding-bottom: 27px; position: relative; &::after { content: ""; position: absolute; bottom: 12px; left: 15%; width: 70%; height: 1px; background: #bb91c7; } }
+  tr > :nth-child(2) { color: white; }
+  tbody tr:last-child > * { padding-bottom: 42px; }
+  &__footnote, &__comparison { max-width: 990px; margin-inline: auto !important; line-height: 1.3; }
+  &__footnote { margin-bottom: 24px !important; }
+
+  @container safety-page (max-width: 1100px) { &__people { display: none; } }
+  @container safety-page (max-width: 600px) {
+    &__banner { min-height: 160px; height: 180px; }
+    &__study { padding: 30px 0 36px; h1 { margin-bottom: 28px; } }
+    &__intro { width: calc(100% - 32px); padding: 22px 16px; }
+    &__desktop-break { display: none; }
+    &__cohorts { grid-template-columns: 1fr; gap: 40px; }
+    &__cohort:first-child::after { display: none; }
+    &__cohort { gap: 30px; }
+    &__count strong { font-size: 82px; }
+    &__treatment { flex-basis: 120px; }
+    &__reactions { padding: 30px 16px 44px; }
+    &__table-wrap { margin-top: 36px; margin-bottom: 44px; border-radius: 24px; &::before { border-radius: 22px; } }
+    table { font-size: 15px; }
+    th, td { padding: 14px 5px; overflow-wrap: anywhere; }
+    &__footnote, &__comparison { font-size: 17px; }
+  }
+}
+
+.safety-profile {
+  &__purple { color: var(--safety-purple); }
+  &__pill {
+    margin: 0 auto;
+    padding: 20px 28px;
+    border: 1px solid #a65bbb;
+    border-radius: 60px;
+    color: var(--safety-purple);
+    font-size: clamp(24px, 2.1cqw, 30px) !important;
+    font-weight: 400;
+    line-height: 1.3;
+  }
+  &__discontinuations {
+    padding: 64px 28px 66px;
+    background: radial-gradient(ellipse at 65% 30%, #fff 0%, #fcf5ff 50%, #f5e9fc 100%);
+    > h2 { max-width: 730px; margin-bottom: 36px; }
+    > p { line-height: 1.4; }
+  }
+  &__discontinuation-card {
+    display: grid;
+    grid-template-columns: 215px 1fr;
+    align-items: center;
+    gap: 28px;
+    max-width: 1130px;
+    margin: 36px auto 44px;
+    padding: 24px 32px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 18px 12px -19px #534b5d99;
+    text-align: left;
+    ul { display: grid; grid-template-columns: repeat(6, 1fr); gap: 18px 0; margin: 0; padding: 0; list-style: none; }
+    li {
+      grid-column: span 2;
+      position: relative;
+      padding: 8px 18px 8px 36px;
+      line-height: 1.25;
+      &::before { content: "•"; position: absolute; left: 10px; color: var(--safety-purple); }
+      &:nth-child(2), &:nth-child(3), &:nth-child(5) { border-left: 2px dashed #a65bbb; }
+      &:nth-child(n + 4) { grid-column: span 3; }
+    }
+  }
+  &__discontinuation-label {
+    position: relative;
+    padding-right: 38px;
+    border-right: 1px solid #a65bbb;
+    line-height: 1.2;
+    &::after { content: ""; position: absolute; right: -8px; top: calc(50% - 8px); width: 15px; height: 15px; border-top: 1px solid #a65bbb; border-right: 1px solid #a65bbb; background: white; transform: rotate(45deg); }
+  }
+  &__no-deaths { margin-top: 30px !important; }
+  &__precautions { padding: 56px 28px 54px; }
+  &__precautions-heading { display: flex; align-items: center; justify-content: center; gap: 24px; max-width: 840px; margin: 0 auto 60px; h2 { flex: 1; } }
+  &__warning-icon { width: 96px; flex-shrink: 0; color: #5d5d5d; }
+  &__precautions-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    gap: 46px 50px;
+    max-width: 1185px;
+    margin: 0 auto;
+    text-align: left;
+    font-size: clamp(18px, 1.4cqw, 20px);
+    line-height: 1.5;
+    h3 { display: flex; align-items: center; gap: 16px; margin: 0 0 24px; font-size: clamp(21px, 1.65cqw, 24px); font-weight: 400; line-height: 1.2; }
+    p + p { margin-top: 24px; }
+    ul { margin: 12px 0; padding-left: 27px; }
+    li { padding-left: 0; margin-bottom: 12px; &::marker { color: var(--safety-purple); } }
+  }
+  &__precaution-icon { width: 76px; height: 76px; flex-shrink: 0; color: var(--safety-purple); }
+  &__hypersensitivity { padding-right: 38px; border-right: 2px dashed #a65bbb; }
+  &__infection { grid-column: 1 / -1; }
+
+  @container safety-page (max-width: 1100px) {
+    &__discontinuation-card { grid-template-columns: 180px 1fr; gap: 18px; padding: 24px; li { padding-right: 10px; padding-left: 24px; &::before { left: 6px; } } }
+    &__discontinuation-label { padding-right: 20px; }
+    &__precautions-grid { gap: 36px 28px; }
+    &__hypersensitivity { padding-right: 24px; }
+  }
+  @container safety-page (max-width: 700px) {
+    &__discontinuations { padding: 36px 16px; }
+    &__pill { padding: 16px 18px; font-size: 23px !important; }
+    &__discontinuation-card { display: block; padding: 24px 20px; margin: 28px auto; ul { display: block; } li { border: 0 !important; padding: 8px 0 8px 24px; } }
+    &__discontinuation-label { padding: 0 0 16px; margin-bottom: 12px !important; border-right: 0; border-bottom: 1px solid #a65bbb; &::after { display: none; } }
+    &__precautions { padding: 36px 20px; }
+    &__precautions-heading { gap: 10px; margin-bottom: 36px; h2 { font-size: 20px; padding: 14px 10px; } }
+    &__warning-icon { width: 36px; }
+    &__precautions-grid { grid-template-columns: 1fr; gap: 30px; }
+    &__hypersensitivity { padding: 0 0 28px; border-right: 0; border-bottom: 2px dashed #a65bbb; }
+    &__precaution-icon { width: 62px; height: 62px; }
+  }
+}
+
+.safety-profile {
+  &__additional, &__renal {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 65% 35%, #fff 0%, #fcf5ff 50%, #f5e9fc 100%);
+  }
+  &__additional {
+    padding: 44px 28px 54px;
+    > h2 { max-width: 770px; margin-bottom: 22px; }
+  }
+  &__additional-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 4fr) minmax(0, 5fr);
+    align-items: stretch;
+    gap: 40px 44px;
+    max-width: 910px;
+    margin: 0 auto;
+  }
+  &__additional-card {
+    padding: 40px 0 26px;
+    border-radius: 28px 28px 0 0;
+    background: white;
+    h3 { margin: 0 0 14px; padding: 6px 16px; background: var(--safety-purple); color: white; font-size: clamp(20px, 1.6cqw, 23px); font-weight: 400; line-height: 1.2; }
+    p { padding: 0 18px; font-size: clamp(18px, 1.4cqw, 20px); line-height: 1.25; }
+  }
+  &__warning-watermark { position: absolute; right: -48px; bottom: 54px; z-index: -1; opacity: .65; .safety-profile__warning-icon { width: 310px; color: white; } }
+  &__contraindications {
+    padding: 48px 24px 44px;
+    > h2 { max-width: 515px; margin-bottom: 34px; }
+    > p { max-width: 1000px; margin: 0 auto; font-size: clamp(18px, 1.4cqw, 20px); line-height: 1.25; }
+  }
+  &__renal {
+    padding: 48px 28px;
+    > h2 { max-width: 515px; margin-bottom: 40px; }
+  }
+  &__renal-copy { max-width: 1030px; margin: 0 auto 44px; font-size: clamp(18px, 1.4cqw, 20px); line-height: 1.3; p + p { margin-top: 24px; } }
+  &__kidney-watermark { position: absolute; left: -35px; top: 50px; width: 480px; height: auto; opacity: 1; z-index: -1; pointer-events: none; }
+  &__dosing-link {
+    display: block;
+    max-width: 530px;
+    margin: 0 auto;
+    padding: 18px 24px;
+    border: 5px solid #e8dbf1;
+    border-radius: 50px;
+    background: linear-gradient(#d5bde3 15%, #e5d7ee 60%, white);
+    box-shadow: 0 4px 3px #0002;
+    color: var(--safety-purple);
+    font-size: clamp(18px, 1.4cqw, 20px);
+    text-decoration: none;
+    line-height: 1.25;
+    transition: box-shadow .2s ease;
+    &:hover { box-shadow: 0 4px 10px #79308844; text-decoration: underline; }
+    &:focus-visible { outline: 3px solid var(--safety-purple); outline-offset: 4px; }
+  }
+  @container safety-page (max-width: 700px) {
+    &__additional, &__renal { padding: 36px 20px; }
+    &__additional-grid { grid-template-columns: 1fr; gap: 24px; }
+    &__additional-card { padding-top: 26px; }
+    &__contraindications { padding: 36px 20px; }
+    &__kidney-watermark { width: 320px; opacity: .8; }
+    &__warning-watermark { opacity: .35; }
+    &__renal-copy { margin-bottom: 30px; }
+  }
+}
+
+// Breakpoints follow the available page width, including the desktop sidebar.
+.safety-profile {
+  h1, h2, h3, p, li { overflow-wrap: break-word; }
+  &__cohort, &__additional-card, &__precautions-grid > article { min-width: 0; }
+  &__summary { max-width: 1100px; margin-inline: auto !important; }
+  &__discontinuations > p { max-width: 1130px; margin-inline: auto; }
+  &__additional-card { display: flex; flex-direction: column; }
+  &__additional-card h3 { min-height: 2.9em; align-content: center; }
+  &__additional-card p { line-height: 1.45; }
+  &__renal-copy, &__contraindications > p { line-height: 1.5; }
+
+  @container safety-page (max-width: 1000px) {
+    &__desktop-break { display: none; }
+    &__discontinuation-card { grid-template-columns: 1fr; gap: 18px; }
+    &__discontinuation-label {
+      padding: 0 0 18px;
+      border-right: 0;
+      border-bottom: 1px solid #a65bbb;
+      &::after { display: none; }
+    }
+    &__discontinuation-card ul { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; }
+    &__discontinuation-card li {
+      grid-column: auto;
+      &:nth-child(n) { grid-column: auto; border-left: 0; }
+    }
+    &__precautions-grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); }
+    &__precautions-grid h3 { gap: 12px; font-size: 21px; }
+    &__precaution-icon { width: 60px; height: 60px; }
+  }
+
+  @container safety-page (max-width: 760px) {
+    &__precautions-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    &__hypersensitivity { padding: 0 0 28px; border-right: 0; border-bottom: 2px dashed #a65bbb; }
+    &__precautions-heading { gap: 12px; }
+    &__precautions-heading h2 { font-size: 22px; padding: 16px 12px; }
+    &__precautions-heading > svg { width: 44px; }
+    &__additional-grid { gap: 24px; }
+  }
+
+  @container safety-page (max-width: 600px) {
+    &__study h1 { font-size: clamp(28px, 6cqw, 36px); margin-inline: 16px; }
+    &__intro, &__duration, &__summary, &__discontinuations > p { font-size: 18px; line-height: 1.5; }
+    &__cohorts { gap: 36px; }
+    &__cohort { padding-inline: 18px; gap: clamp(20px, 6cqw, 36px); }
+    &__count strong { font-size: clamp(64px, 18cqw, 82px); }
+    &__count span { font-size: 20px; }
+    &__treatment { flex-basis: clamp(100px, 27cqw, 120px); font-size: 17px; }
+    &__pill { font-size: 22px !important; }
+    &__discontinuation-card ul { display: block; }
+    &__discontinuation-card li { font-size: 18px; line-height: 1.4; }
+    &__table-wrap { margin-inline: 0; }
+    table { font-size: clamp(13px, 3.7cqw, 16px); }
+    th, td { overflow-wrap: normal; padding-inline: 5px; line-height: 1.35; }
+    thead th { font-size: clamp(12px, 3.4cqw, 15px); }
+    &__additional-grid { grid-template-columns: minmax(0, 1fr); }
+    &__additional-card { border-radius: 22px; overflow: hidden; }
+    &__additional-card p { text-align: left; padding-inline: 22px; }
+    &__precautions-grid h3 { font-size: 21px; }
+    &__renal-copy { text-align: left; }
+    &__renal-copy > p:first-child { text-align: center; }
+    &__dosing-link { min-height: 52px; padding: 15px 16px; font-size: 17px; }
+  }
+
+  @container safety-page (max-width: 380px) {
+    &__precautions-heading { gap: 8px; }
+    &__precautions-heading > svg { width: 28px; }
+    &__precautions-heading h2 { font-size: 18px; }
+    &__precautions, &__additional, &__renal { padding-inline: 16px; }
+    &__reactions h2, &__pill { font-size: 21px !important; }
+  }
+}
+
+.safety-profile__count strong > span { font: inherit; }
+
+// Match the existing AMR page's inherited Montserrat body typography.
+.safety-profile {
+  .safety-profile__intro,
+  .safety-profile__duration,
+  .safety-profile__summary,
+  .safety-profile__footnote,
+  .safety-profile__comparison,
+  .safety-profile__discontinuations > p,
+  .safety-profile__discontinuation-label,
+  .safety-profile__discontinuation-card li,
+  .safety-profile__precautions-grid,
+  .safety-profile__additional-card p,
+  .safety-profile__contraindications > p,
+  .safety-profile__renal-copy,
+  .safety-profile__dosing-link,
+  table {
+    font-family: "Montserrat", Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25;
+  }
+  thead th { font-size: inherit; }
+  @container safety-page (max-width: 380px) {
+    table { font-size: .875rem; }
+  }
+}
+
+// Warnings layout: bold labels, aligned icons, and a one-third/two-thirds split.
+.safety-profile {
+  &__precautions { padding: 56px 28px 54px !important; }
+  &__precautions-heading {
+    max-width: 840px;
+    gap: 24px;
+    margin-bottom: 60px;
+    > svg { width: 96px; }
+  }
+  &__precautions-grid {
+    max-width: 1185px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    column-gap: 50px;
+    row-gap: 48px;
+    h3 {
+      min-height: 76px;
+      margin-bottom: 26px;
+      gap: 16px;
+      font-family: "Montserrat-bold", "Montserrat", Arial, sans-serif;
+      font-size: clamp(20px, 1.7cqw, 25px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: #080808;
+    }
+    p + p { margin-top: 26px; }
+    ul { margin: 14px 0; padding-left: 26px; }
+    li { margin-bottom: 12px; padding-left: 2px; }
+    .safety-profile__precaution-icon { width: 76px; height: 76px; }
+  }
+  &__hypersensitivity { padding-right: 36px; border-right: 2px dashed #9649a9; border-bottom: 0; }
+  &__neurotoxicity .safety-profile__desktop-break { display: none; }
+
+  @container safety-page (max-width: 1000px) {
+    &__precautions-grid { column-gap: 28px; }
+    &__hypersensitivity { padding-right: 24px; }
+    &__precautions-grid h3 { gap: 12px; }
+    &__precautions-grid .safety-profile__precaution-icon { width: 60px; height: 60px; }
+  }
+  @container safety-page (max-width: 760px) {
+    &__precautions { padding: 36px 20px 44px !important; }
+    &__precautions-heading {
+      gap: 12px;
+      margin-bottom: 36px;
+      > svg { width: 44px; }
+    }
+    &__precautions-grid { grid-template-columns: minmax(0, 1fr); row-gap: 30px; }
+    &__precautions-grid h3 { min-height: 60px; margin-bottom: 20px; font-size: 21px; }
+    &__hypersensitivity { padding: 0 0 28px; border-right: 0; border-bottom: 2px dashed #9649a9; }
+  }
+  @container safety-page (max-width: 380px) {
+    &__precautions-heading { gap: 8px; > svg { width: 28px; } }
+    &__precautions-grid h3 { font-size: 19px; }
+  }
+}
+
+.safety-profile__additional > h2.safety-profile__pill {
+  max-width: 1200px;
+}
+

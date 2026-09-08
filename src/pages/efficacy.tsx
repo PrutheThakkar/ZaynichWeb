@@ -1,0 +1,187 @@
+import React, { useId } from "react";
+import Layout from "../components/Layout";
+import useAnimatedProgress from "../hooks/useAnimatedProgress";
+import SafetyInformation from "../components/SafetyInformation";
+import "../styles/efficacy.scss";
+
+const efficacyOutcomes = [
+  ["Composite response", "89.0% (250/281)", "68.4% (93/136)", "68.4% (93/136)"],
+  ["Clinical cure", "96.8% (272/281)", "94.9% (129/136)", "94.9% (129/136)"],
+  ["Microbiological response", "91.1% (256/281)", "70.6% (96/136)", "70.6% (96/136)"],
+];
+
+const pathogenResponses = [
+  ["Escherichia coli", "92% (162/176)", "69% (60/87)", "#80ba87"],
+  ["Klebsiella pneumoniae", "79% (41/52)", "63% (15/24)", "#d883b1"],
+  ["Proteus mirabilis", "88% (22/25)", "86% (6/7)", "#b674da"],
+  ["Enterobacter cloacae complex", "85% (11/13)", "57% (4/7)", "#c49b72"],
+  ["Pseudomonas aeruginosa", "57% (4/7)", "20% (1/5)", "#e5bd51"],
+];
+
+function CheckIcon() {
+  return <svg viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M29 5H12a7 7 0 0 0-7 7v28a7 7 0 0 0 7 7h28a7 7 0 0 0 7-7V24" stroke="currentColor" strokeWidth="5" strokeLinecap="round" /><path d="m16 24 9 11L46 8" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+}
+
+function PathogenIcon({ color }: { color: string }) {
+  return <svg className="efficacy__pathogen-icon" viewBox="0 0 64 64" style={{ color }} fill="none" aria-hidden="true">
+    <g transform="rotate(-25 32 32)" stroke="currentColor" strokeWidth="1.5">
+      <path d="M17 23 12 16m13 5-1-10m10 10 3-10m7 13 7-7m-1 13 10-2M17 40l-6 7m14-4-1 10m11-10 3 10m7-13 8 7M12 31l-9-2m49 8 9 2" />
+      <rect x="11" y="22" width="42" height="21" rx="10.5" fill="currentColor" fillOpacity=".3" />
+      <path d="m20 29 3 2m8 5 3-2m7-5 3 2m-25 6 3-1" strokeWidth="3" strokeLinecap="round" />
+    </g>
+  </svg>;
+}
+
+function PatientArrow({ comparator = false }: { comparator?: boolean }) {
+  return (
+    <div className={`efficacy__patients${comparator ? " efficacy__patients--comparator" : ""}`}>
+      <div className="efficacy__patient-pattern" aria-hidden="true">
+        {Array.from({ length: 120 }, (_, index) => (
+          <svg key={index} viewBox="0 0 16 36" fill="currentColor">
+            <circle cx="8" cy="4" r="3" />
+            <path d="M4 9h8a3 3 0 0 1 3 3v10h-3v12H9V23H7v11H4V22H1V12a3 3 0 0 1 3-3Z" />
+          </svg>
+        ))}
+      </div>
+      <p>{comparator ? "93/136 patients" : "250/281 patients"}</p>
+    </div>
+  );
+}
+
+function ResponseChart({ value, comparator = false, caption }: { value: number; comparator?: boolean; caption?: React.ReactNode }) {
+  const { ref, progress } = useAnimatedProgress();
+  const animatedValue = value * progress;
+  const decimals = Number.isInteger(value) ? 0 : 1;
+  return (
+    <div className={`efficacy__chart${comparator ? " efficacy__chart--comparator" : ""}`}>
+      <div ref={ref} className="efficacy__ring" role="img" aria-label={`${value}% composite response with ${comparator ? "meropenem" : "ZAYNICH"}`}>
+        <svg viewBox="0 0 220 220" aria-hidden="true">
+          <circle className="efficacy__ring-track" cx="110" cy="110" r="96" />
+          <circle className="efficacy__ring-value" cx="110" cy="110" r="96" pathLength="100" strokeDasharray={`${animatedValue} ${100 - animatedValue}`} style={{ opacity: progress === 0 ? 0 : 1 }} transform="rotate(-90 110 110)" />
+        </svg>
+        <span aria-hidden="true">{animatedValue.toFixed(decimals)}%</span>
+      </div>
+      <p>{caption ?? (comparator ? "with meropenem" : <>Composite response<br />with ZAYNICH<sup>TM</sup></>)}</p>
+    </div>
+  );
+}
+
+function InfusionIcon({ progress }: { progress: number }) {
+  const liquidClipId = `infusion-liquid-${useId().replace(/:/g, "")}`;
+  const liquidHeight = 108 - 44 * progress;
+  const tubeProgress = Math.min(progress / 0.25, 1);
+  return <svg className="efficacy__infusion-icon" viewBox="0 0 160 250" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+    <path d="M12 244V20q0-10 10-10h30q0 10 12 10M72 15V9m-8 8q8-12 16 0" />
+    <path d="M52 20h38q12 0 12 14v70q0 39-31 39t-31-39V34q0-14 12-14Z" />
+    <defs>
+      <clipPath id={liquidClipId}>
+        <path d="M45 29h52v76q0 32-26 32t-26-32Z" />
+      </clipPath>
+    </defs>
+    <rect x="45" y={137 - liquidHeight} width="52" height={liquidHeight} clipPath={`url(#${liquidClipId})`} fill="currentColor" stroke="none" />
+    <path d="M62 147h18l-5 9h-8Zm5 10h8v22h-8Z" fill="currentColor" />
+    <path d="M71 179v34c0 40 53 40 53 0V63c0-29 33-29 33 0v104" opacity=".3" />
+    <path d="M71 179v34c0 40 53 40 53 0V63c0-29 33-29 33 0v104" pathLength="100" strokeWidth="4" strokeLinecap="round" strokeDasharray={`${tubeProgress * 100} 100`} opacity={progress > 0 && progress < 1 ? 1 : 0} />
+    <path d="M121 84h6v22h-6Zm34 70h4v21h-4Z" />
+  </svg>;
+}
+
+function TrialArm({ comparator = false }: { comparator?: boolean }) {
+  const { ref, progress } = useAnimatedProgress({ duration: 4200 });
+  const boxFill = Math.max(0, Math.min((progress - 0.25) / 0.75, 1));
+  return (
+    <div ref={ref} className={`efficacy__trial-arm${comparator ? " efficacy__trial-arm--comparator" : ""}`}>
+      <InfusionIcon progress={progress} />
+      <div className="efficacy__dose-card efficacy__dose-card--transfer" style={{ "--dose-fill": boxFill, color: boxFill > 0.65 ? "white" : "#25202a" } as React.CSSProperties}>
+        <span className="efficacy__dose-liquid" aria-hidden="true" />
+        <h3>{comparator ? "Meropenem" : "ZAYNICH"}</h3>
+        {comparator ? <p>1 g IV every 8 hours</p> : <div className="efficacy__dose-details"><p>2 g cefepime +<br />1 g zidebactam</p><p>IV every<br />8 hours</p></div>}
+      </div>
+    </div>
+  );
+}
+
+export default function EfficacyPage() {
+  return (
+    <Layout title="Clinical efficacy | ZAYNICH" bodyClass="efficacy-page">
+      <div className="efficacy">
+        {/* Replace with final banner artwork when available. */}
+        <div className="efficacy__banner" role="img" aria-label="Banner placeholder">banner</div>
+        <section className="efficacy__intro" aria-labelledby="efficacy-title">
+          <h1 id="efficacy-title">Proven efficacy in adults with cUTI,<br className="efficacy__desktop-break" /> including pyelonephritis</h1>
+          <p className="efficacy__headline"><span className="efficacy__brand">ZAYNICH<sup>TM</sup></span>demonstrated an 89% composite response<br className="efficacy__desktop-break" /> at Test of Cure</p>
+          <p className="efficacy__description">In a multinational, double-blind, noninferiority trial, ZAYNICH<sup>TM</sup> was evaluated versus meropenem in adults with complicated urinary tract infections (cUTI), including pyelonephritis.</p>
+        </section>
+        <section className="efficacy__results" aria-label="Composite response at Test of Cure">
+          <div className="efficacy__comparison">
+            <div className="efficacy__arm"><PatientArrow /><ResponseChart value={89} /></div>
+            <span className="efficacy__versus" aria-hidden="true">Vs</span>
+            <div className="efficacy__arm efficacy__arm--comparator"><PatientArrow comparator /><ResponseChart value={68.4} comparator /></div>
+          </div>
+          <p className="efficacy__difference">Treatment difference: <span>20.6% (95% CI: 12.3, 29.5)</span></p>
+          <p className="efficacy__definition">Composite response was defined as both clinical cure and<br className="efficacy__desktop-break" /> microbiological response at the Test of Cure (TOC) visit, 10 days after the end of treatment.</p>
+        </section>
+        <section className="efficacy__outcomes" aria-labelledby="efficacy-outcomes-title">
+          <h2 className="efficacy__section-title" id="efficacy-outcomes-title">High rates of clinical cure and microbiological response</h2>
+          <p className="efficacy__section-subtitle">At the Test of Cure visit:</p>
+          <div className="efficacy__table-scroll" role="region" aria-label="Efficacy outcomes table" tabIndex={0}>
+            <div className="efficacy__table-frame efficacy__table-frame--outcomes">
+              <table className="efficacy__data-table" aria-labelledby="efficacy-outcomes-title">
+                <colgroup><col style={{ width: "34%" }} /><col style={{ width: "22%" }} /><col style={{ width: "19%" }} /><col style={{ width: "25%" }} /></colgroup>
+                <thead><tr><th scope="col">Efficacy Outcome</th><th scope="col">ZAYNICH</th><th scope="col">Meropenem</th><th scope="col">Treatment Difference<br />(95% CI)</th></tr></thead>
+                {/* Treatment-difference values transcribed from the supplied design; confirm before publication. */}
+                <tbody>{efficacyOutcomes.map(([outcome, zaynich, meropenem, difference]) => <tr key={outcome}><th scope="row">{outcome}</th><td>{zaynich}</td><td>{meropenem}</td><td>{difference}</td></tr>)}</tbody>
+              </table>
+            </div>
+          </div>
+          <ul className="efficacy__definitions">
+            <li><CheckIcon /><p>Clinical cure was defined as complete resolution, or return to premorbid state, of baseline signs and symptoms of cUTI or pyelonephritis present at screening, with no new urinary symptoms or worsening of symptoms.</p></li>
+            <li><CheckIcon /><p>Microbiological response was defined as reduction of the baseline qualifying pathogen(s) to &lt;10<sup>3</sup> CFU/mL in urine.</p></li>
+          </ul>
+        </section>
+
+        <section className="efficacy__pathogens" aria-labelledby="efficacy-pathogens-title">
+          <h2 className="efficacy__section-title" id="efficacy-pathogens-title">High rates of clinical cure and microbiological response</h2>
+          <p className="efficacy__section-subtitle" id="efficacy-pathogens-subtitle">Composite response at Test of Cure by baseline pathogen</p>
+          <div className="efficacy__table-scroll" role="region" aria-label="Response by baseline pathogen table" tabIndex={0}>
+            <div className="efficacy__table-frame efficacy__table-frame--pathogens">
+              <table className="efficacy__data-table" aria-describedby="efficacy-pathogens-subtitle">
+                <colgroup><col style={{ width: "50%" }} /><col style={{ width: "25%" }} /><col style={{ width: "25%" }} /></colgroup>
+                <thead><tr><th scope="col">Gram-negative pathogen</th><th scope="col">ZAYNICH</th><th scope="col">Meropenem</th></tr></thead>
+                <tbody>{pathogenResponses.map(([pathogen, zaynich, meropenem, color]) => <tr key={pathogen}><th scope="row"><span className="efficacy__pathogen-name"><PathogenIcon color={color} /><span>{pathogen}</span></span></th><td>{zaynich}</td><td>{meropenem}</td></tr>)}</tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+        <section className="efficacy__esbl" aria-labelledby="esbl-title">
+          <h2 className="efficacy__section-title" id="esbl-title">Efficacy in ESBL-screen-positive isolates</h2>
+          <p className="efficacy__esbl-description">Among patients with E. coli, K. pneumoniae, or P. mirabilis isolates with<br className="efficacy__desktop-break" /> an extended-spectrum beta-lactamase (ESBL)-screen-positive phenotype:</p>
+          <svg className="efficacy__thumb-watermark" viewBox="0 0 240 270" fill="none" stroke="currentColor" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M183 235c-50 16-77 18-121 18H39c-24 0-26-31-7-35-29 0-32-34-9-38-27-3-27-35-2-38-29-5-23-38 1-38h48C43 74 45 6 68 7c29 1 21 53 55 76l60 29M184 98h36q14 0 14 14v124q0 14-14 14h-36Z" />
+          </svg>
+          <div className="efficacy__esbl-charts">
+            <ResponseChart value={89} caption={<>62/70<br />of ZAYNICH-treated patients achieved composite response at Test of Cure</>} />
+            <span className="efficacy__versus" aria-hidden="true">Vs</span>
+            <ResponseChart value={70} comparator caption={<>31/44<br />of meropenem-<br />treated patients.</>} />
+          </div>
+        </section>
+
+        <section className="efficacy__trial" aria-labelledby="clinical-trial-title">
+          <h2 className="efficacy__section-title" id="clinical-trial-title">THE ZAYNICH CLINICAL TRIAL</h2>
+          <p className="efficacy__trial-intro">A multinational Phase 3 study in adults with cUTI, including pyelonephritis<br />A total of 530 adults with cUTI, including pyelonephritis, were randomized 2:1 to receive:</p>
+          <div className="efficacy__trial-arms">
+            <TrialArm />
+            <span className="efficacy__trial-or">or</span>
+            <TrialArm comparator />
+          </div>
+          <div className="efficacy__trial-copy">
+            <p>Both treatments were infused over 1 hour for 7 to 10 days. Dose adjustments were made for patients with renal impairment. Switching from IV to oral antibacterial therapy was not permitted.</p>
+            <p>The primary efficacy analysis was conducted in the microbiological modified intent-to-treat (mMITT) population, which included <span className="efficacy__trial-population"><span>281 ZAYNICH-treated patients</span> and 136 meropenem-treated patients.</span></p>
+            <p>At baseline, 68% of patients had cUTI and 32% had pyelonephritis. Concomitant bacteremia was identified in 6% of ZAYNICH-treated patients and 7% of meropenem-treated patients.</p>
+          </div>
+        </section>
+      </div>
+      <SafetyInformation />
+    </Layout>
+  );
+}

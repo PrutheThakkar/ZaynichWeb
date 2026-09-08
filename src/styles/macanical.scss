@@ -1,0 +1,23 @@
+.img-wrapper{
+     --spectrum-purple: #7b2b91;
+  --spectrum-purple-dark: #702283;
+  --spectrum-green: #18b400;
+  --spectrum-red: #e31b1b;
+  --spectrum-blue: #145ac4;
+  --spectrum-border: #d4d4d4;
+  --spectrum-cell: #ececec;
+  --spectrum-bg: #f9effb;
+    background:
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(255, 255, 255, 0.94),
+      rgba(255, 255, 255, 0.28) 65%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    var(--spectrum-bg);
+    margin-bottom: 50px;
+img{
+    width: 100%;
+    height: 100%;
+}
+}

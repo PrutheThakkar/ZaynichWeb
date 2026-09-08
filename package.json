@@ -1,0 +1,29 @@
+{
+  "name": "zynich-gatsby",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ZAYNICH (cefepime and zidebactam) HCP site — Gatsby build",
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "gatsby": "^5.13.7",
+    "gatsby-plugin-image": "^3.16.0",
+    "gatsby-plugin-react-helmet": "^6.13.1",
+    "gatsby-plugin-sass": "^6.13.1",
+    "gatsby-plugin-sharp": "^5.16.0",
+    "gatsby-source-wordpress": "^7.17.0",
+    "gatsby-transformer-sharp": "^5.16.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "sass": "^1.71.1",
+    "sharp": "^0.35.4",
+    "swiper": "^11.0.7"
+  }
+}
