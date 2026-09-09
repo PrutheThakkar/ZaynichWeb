@@ -1,0 +1,772 @@
+.efficacy {
+  --efficacy-purple: #7d308c;
+  container: efficacy/inline-size;
+  width: 100%;
+  min-width: 0;
+  color: #171717;
+  text-align: center;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-weight: 400;
+}
+.efficacy p {
+  margin: 0;
+  font-family: inherit;
+  font-weight: 400;
+}
+.efficacy sup {
+  font-size: 0.55em;
+  vertical-align: super;
+}
+.efficacy h1, .efficacy p {
+  overflow-wrap: break-word;
+}
+.efficacy__banner {
+  display: grid;
+  place-items: center;
+  height: clamp(180px, 21cqw, 302px);
+  background: #7d2b8b;
+  color: white;
+  font: 400 clamp(72px, 11cqw, 160px)/1 Arial, sans-serif;
+}
+.efficacy__intro {
+  padding: clamp(32px, 3.5cqw, 52px) 24px 60px !important;
+  background: radial-gradient(ellipse at 65% 35%, #fff, #fcf5ff 50%, #f5e9fc);
+}
+.efficacy__intro h1, .efficacy__headline {
+  max-width: 1100px;
+  margin: 0 auto;
+  color: var(--efficacy-purple);
+  font-size: clamp(28px, 3.6cqw, 52px);
+  line-height: 1.23;
+  font-weight: 400;
+}
+.efficacy__intro h1 {
+  font-family: inherit;
+  text-transform: none;
+  letter-spacing: normal;
+}
+.efficacy p.efficacy__headline {
+  margin: 20px auto 0;
+}
+.efficacy__brand {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 1.4em;
+  font-family: "Montserrat-bold";
+}
+.efficacy__description {
+  max-width: 975px;
+  margin: 42px auto 0 !important;
+  font-size: clamp(18px, 1.7cqw, 24px);
+  line-height: 1.35;
+}
+.efficacy__results {
+  padding: 32px 24px !important;
+  border-bottom: 12px solid #fcf3ff;
+}
+.efficacy__comparison {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 90px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.efficacy__arm {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  min-width: 0;
+}
+.efficacy__arm--comparator .efficacy__patients {
+  order: 2;
+}
+.efficacy__chart {
+  min-width: 0;
+  color: var(--efficacy-purple);
+}
+.efficacy__chart > p {
+  margin-top: 26px;
+  font-size: clamp(21px, 2cqw, 30px);
+  line-height: 1.2;
+}
+.efficacy__chart--comparator {
+  color: #858789;
+}
+.efficacy__chart--comparator .efficacy__ring-value {
+  stroke: #858789;
+}
+.efficacy__ring {
+  position: relative;
+  width: 100%;
+  max-width: 270px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+.efficacy__ring svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 26;
+}
+.efficacy__ring span {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: clamp(32px, 4.2cqw, 60px);
+}
+.efficacy__ring-track {
+  stroke: #d0cad5;
+}
+.efficacy__ring-value {
+  stroke: #913990;
+  stroke-linecap: round;
+}
+.efficacy__versus {
+  align-self: start;
+  margin-top: 65px;
+  color: var(--efficacy-purple);
+  font-size: clamp(48px, 6cqw, 86px);
+  line-height: 1;
+  font-weight: 700;
+  font-style: italic;
+}
+.efficacy__patients {
+  position: relative;
+  margin-top: 42px;
+  color: var(--efficacy-purple);
+  min-width: 0;
+}
+.efficacy__patients > p {
+  position: absolute;
+  left: 9%;
+  right: 9%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  padding: 8px 2px;
+  border-radius: 40px;
+  font-size: clamp(14px, 1.6cqw, 24px);
+  white-space: nowrap;
+}
+.efficacy__patient-pattern {
+  display: grid;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 1px;
+  clip-path: polygon(0 18%, 68% 18%, 68% 0, 100% 50%, 68% 100%, 68% 82%, 0 82%);
+}
+.efficacy__patient-pattern svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.efficacy__patients--comparator {
+  color: #858789;
+}
+.efficacy__patients--comparator .efficacy__patient-pattern {
+  transform: scaleX(-1);
+}
+.efficacy__difference {
+  max-width: 930px;
+  margin: 30px auto 32px !important;
+  padding: 26px 20px;
+  border-radius: 14px;
+  background: linear-gradient(white, #e6e6e6);
+  box-shadow: 0 15px 10px -16px #555;
+  font-size: clamp(22px, 2cqw, 30px);
+  line-height: 1.35;
+}
+.efficacy__difference span {
+  color: var(--efficacy-purple);
+}
+.efficacy__definition {
+  max-width: 1050px;
+  margin: 0 auto !important;
+  font-size: clamp(18px, 1.7cqw, 24px);
+  line-height: 1.4;
+}
+@container efficacy (max-width: 1100px) {
+  .efficacy__comparison {
+    grid-template-columns: minmax(0, 1fr) 64px minmax(0, 1fr);
+    max-width: 800px;
+  }
+  .efficacy__arm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+  }
+  .efficacy__chart {
+    width: 100%;
+    order: 0;
+  }
+  .efficacy__patients {
+    order: 1;
+    width: 230px;
+    max-width: 100%;
+    margin-top: 0;
+  }
+  .efficacy__patients > p {
+    font-size: 18px;
+  }
+  .efficacy__patient-pattern {
+    max-height: 145px;
+  }
+  .efficacy__ring {
+    max-width: 240px;
+  }
+  .efficacy__ring span {
+    font-size: 48px;
+  }
+  .efficacy__versus {
+    margin-top: 90px;
+  }
+  .efficacy__chart > p {
+    min-height: 2.4em;
+    margin-top: 18px;
+  }
+  .efficacy__desktop-break {
+    display: none;
+  }
+}
+@container efficacy (max-width: 560px) {
+  .efficacy__intro {
+    padding: 32px 20px 36px !important;
+  }
+  .efficacy__intro h1, .efficacy__headline {
+    font-size: clamp(26px, 6cqw, 32px);
+  }
+  .efficacy__brand {
+    margin: 22px 0 14px;
+  }
+  .efficacy__description {
+    margin-top: 28px !important;
+  }
+  .efficacy__results {
+    padding: 30px 16px !important;
+  }
+  .efficacy__comparison {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+  .efficacy__arm {
+    gap: 10px;
+  }
+  .efficacy__chart > p {
+    min-height: 0;
+    font-size: 23px;
+  }
+  .efficacy__ring {
+    max-width: 220px;
+  }
+  .efficacy__versus {
+    margin: 0;
+    font-size: 38px;
+  }
+  .efficacy__patients {
+    width: 220px;
+  }
+  .efficacy__patient-pattern {
+    max-height: 110px;
+  }
+  .efficacy__difference {
+    margin-top: 26px !important;
+    font-size: 22px;
+  }
+  .efficacy__difference span {
+    display: block;
+    margin-top: 8px;
+  }
+  .efficacy__definition {
+    font-size: 18px;
+  }
+}
+
+.efficacy__outcomes, .efficacy__pathogens {
+  padding: 60px 28px 64px !important;
+}
+.efficacy__outcomes {
+  background: radial-gradient(ellipse at 65% 35%, #fff, #fcf5ff 50%, #f5e9fc);
+}
+.efficacy h2.efficacy__section-title {
+  max-width: 910px;
+  margin: 0 auto;
+  font-family: inherit;
+  font-weight: 400;
+  line-height: 0.98;
+  text-transform: none;
+  color: #7b2b91;
+}
+.efficacy p.efficacy__section-subtitle {
+  margin: 24px auto 28px;
+  font-size: clamp(19px, 1.7cqw, 24px);
+  line-height: 1.4;
+}
+.efficacy__table-scroll {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding: 14px 2px 20px;
+  overflow-x: auto;
+}
+.efficacy__table-scroll:focus-visible {
+  outline: 2px solid var(--efficacy-purple);
+  outline-offset: 3px;
+}
+.efficacy__table-frame {
+  position: relative;
+  isolation: isolate;
+  border: 1px solid #a75eb8;
+  border-radius: 46px;
+  background: white;
+  padding: 22px;
+}
+.efficacy__table-frame::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -8px;
+  bottom: -8px;
+  left: calc(34% - 7px);
+  width: calc(22% - 10px);
+  border-radius: 22px;
+  background: var(--efficacy-purple);
+}
+.efficacy__data-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-size: clamp(18px, 1.7cqw, 24px);
+  line-height: 1.3;
+}
+.efficacy__data-table th, .efficacy__data-table td {
+  padding: 16px 12px;
+  font-weight: 400;
+  text-align: center;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #a75eb8;
+  overflow-wrap: break-word;
+}
+.efficacy__data-table thead th {
+  padding-top: 4px;
+  padding-bottom: 22px;
+  vertical-align: top;
+}
+.efficacy__data-table th:first-child {
+  text-align: left;
+  padding-left: 32px;
+}
+.efficacy__data-table tr > :nth-child(2) {
+  color: white;
+}
+.efficacy__data-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+.efficacy__table-frame--outcomes .efficacy__data-table tr > :last-child {
+  border-left: 1px solid #a75eb8;
+}
+.efficacy__definitions {
+  max-width: 1150px;
+  margin: 42px auto 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+  font-size: clamp(19px, 1.7cqw, 24px);
+  line-height: 1.3;
+}
+.efficacy__definitions li {
+  display: flex;
+  align-items: flex-start;
+  gap: 28px;
+}
+.efficacy__definitions li + li {
+  margin-top: 42px;
+}
+.efficacy__definitions svg {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  color: var(--efficacy-purple);
+}
+.efficacy__pathogens .efficacy__table-scroll {
+  max-width: 1000px;
+  padding-top: 22px;
+}
+.efficacy__table-frame--pathogens {
+  border-radius: 16px;
+}
+.efficacy__table-frame--pathogens::before {
+  left: 50%;
+  width: calc(25% - 11px);
+  top: -22px;
+  bottom: -16px;
+}
+.efficacy__pathogen-name {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.efficacy__pathogen-icon {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+}
+.efficacy__table-frame--pathogens .efficacy__data-table th:first-child {
+  padding-left: 4px;
+}
+.efficacy__table-frame--pathogens .efficacy__data-table tbody th, .efficacy__table-frame--pathogens .efficacy__data-table tbody td {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+@container efficacy (max-width: 850px) {
+  .efficacy__data-table {
+    font-size: 18px;
+  }
+  .efficacy__data-table th, .efficacy__data-table td {
+    padding-inline: 8px;
+  }
+  .efficacy__data-table th:first-child {
+    padding-left: 10px;
+  }
+  .efficacy__table-frame {
+    padding: 18px 12px;
+  }
+  .efficacy__table-frame--outcomes::before {
+    left: calc(34% - 4px);
+    width: calc(22% - 5px);
+  }
+  .efficacy__table-frame--pathogens::before {
+    width: calc(25% - 6px);
+  }
+  .efficacy__pathogen-name {
+    gap: 8px;
+  }
+  .efficacy__pathogen-icon {
+    width: 34px;
+    height: 40px;
+  }
+}
+@container efficacy (max-width: 600px) {
+  .efficacy__outcomes, .efficacy__pathogens {
+    padding: 36px 16px !important;
+  }
+  .efficacy__table-frame--outcomes {
+    min-width: 710px;
+  }
+  .efficacy__table-frame--pathogens {
+    min-width: 540px;
+  }
+  .efficacy__definitions {
+    margin-top: 24px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+  .efficacy__definitions li {
+    gap: 14px;
+  }
+  .efficacy__definitions li + li {
+    margin-top: 26px;
+  }
+  .efficacy__definitions svg {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+.efficacy__esbl {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 54px 24px 72px !important;
+  background: radial-gradient(ellipse at 65% 35%, #fff, #fcf5ff 50%, #f5e9fc);
+}
+.efficacy__esbl h2.efficacy__section-title {
+  max-width: 760px;
+}
+.efficacy p.efficacy__esbl-description {
+  max-width: 900px;
+  margin: 42px auto 56px;
+  font-size: clamp(19px, 1.7cqw, 24px);
+  line-height: 1.3;
+}
+.efficacy__esbl-charts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 80px minmax(0, 1fr);
+  align-items: start;
+  gap: 18px;
+  max-width: 830px;
+  margin: 0 auto;
+}
+.efficacy__esbl-charts .efficacy__versus {
+  margin-top: 80px;
+}
+.efficacy__esbl-charts .efficacy__chart > p {
+  font-size: clamp(21px, 1.8cqw, 26px);
+  line-height: 1.25;
+}
+.efficacy__thumb-watermark {
+  position: absolute;
+  z-index: -1;
+  width: 320px;
+  height: 360px;
+  right: -24px;
+  bottom: 68px;
+  color: white;
+  opacity: 0.8;
+}
+.efficacy__trial {
+  padding: 60px 24px 100px !important;
+}
+.efficacy__trial h2.efficacy__section-title {
+  max-width: 515px;
+}
+.efficacy p.efficacy__trial-intro {
+  max-width: 1050px;
+  margin: 32px auto 30px;
+  font-size: clamp(18px, 1.4cqw, 21px);
+  line-height: 1.35;
+}
+.efficacy__trial-arms {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr);
+  gap: 12px;
+  max-width: 1080px;
+  margin: 0 auto 72px;
+}
+.efficacy__trial-arm {
+  position: relative;
+  min-width: 0;
+  padding: 155px 0 0 125px;
+  color: var(--efficacy-purple);
+}
+.efficacy__infusion-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 150px;
+  height: 245px;
+}
+.efficacy__dose-card {
+  position: relative;
+  min-height: 128px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 16px 22px;
+  border-radius: 46px;
+  background: var(--efficacy-purple);
+  color: white;
+}
+.efficacy__dose-card h3 {
+  margin: 0 0 8px;
+  font-family: inherit;
+  font-size: clamp(25px, 2.2cqw, 32px);
+  font-weight: 400;
+  line-height: 1.1;
+}
+.efficacy__dose-card p {
+  font-size: clamp(18px, 1.4cqw, 21px);
+  line-height: 1.2;
+}
+.efficacy__dose-details {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+}
+.efficacy__dose-details > p + p {
+  border-left: 1px solid rgba(255, 255, 255, 0.6);
+  padding-left: 18px;
+}
+.efficacy__trial-arm--comparator {
+  color: #858789;
+}
+.efficacy__trial-arm--comparator .efficacy__dose-card {
+  background: #858789;
+}
+.efficacy__trial-or {
+  align-self: end;
+  margin-bottom: 48px;
+  font-size: 21px;
+}
+.efficacy__trial-copy {
+  max-width: 1030px;
+  margin: 0 auto;
+  font-size: clamp(18px, 1.4cqw, 21px);
+  line-height: 1.35;
+}
+.efficacy__trial-copy p + p {
+  margin-top: 26px;
+}
+.efficacy__trial-population {
+  font-size: clamp(23px, 2cqw, 30px);
+}
+.efficacy__trial-population > span {
+  color: var(--efficacy-purple);
+}
+@container efficacy (max-width: 1000px) {
+  .efficacy__trial-arm {
+    padding-left: 58px;
+  }
+  .efficacy__infusion-icon {
+    width: 115px;
+    height: 220px;
+  }
+  .efficacy__dose-card {
+    padding-inline: 16px;
+    border-radius: 32px;
+  }
+  .efficacy__dose-details {
+    gap: 10px;
+  }
+  .efficacy__dose-details > p + p {
+    padding-left: 10px;
+  }
+  .efficacy__esbl-charts {
+    max-width: 730px;
+  }
+  .efficacy__thumb-watermark {
+    opacity: 0.45;
+  }
+}
+@container efficacy (max-width: 650px) {
+  .efficacy__trial-arms {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 20px;
+    max-width: 430px;
+    margin-bottom: 36px;
+  }
+  .efficacy__trial-arm {
+    padding: 110px 0 0 70px;
+  }
+  .efficacy__infusion-icon {
+    width: 120px;
+    height: 200px;
+  }
+  .efficacy__trial-or {
+    margin: 0;
+  }
+  .efficacy__trial {
+    padding: 36px 20px 48px !important;
+  }
+  .efficacy__trial-copy {
+    text-align: left;
+    line-height: 1.5;
+  }
+  .efficacy__esbl {
+    padding: 36px 20px 44px !important;
+  }
+}
+@container efficacy (max-width: 560px) {
+  .efficacy p.efficacy__esbl-description {
+    margin: 28px auto 32px;
+    font-size: 18px;
+    line-height: 1.45;
+  }
+  .efficacy__esbl-charts {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 26px;
+  }
+  .efficacy__esbl-charts .efficacy__versus {
+    margin: 0;
+  }
+  .efficacy__esbl-charts .efficacy__chart > p {
+    max-width: 320px;
+    margin-inline: auto;
+  }
+  .efficacy__thumb-watermark {
+    width: 240px;
+    opacity: 0.3;
+  }
+  .efficacy__dose-card {
+    padding-inline: 12px;
+  }
+  .efficacy__dose-details p {
+    font-size: 17px;
+  }
+}
+
+.efficacy .efficacy__dose-card--transfer {
+  isolation: isolate;
+  overflow: hidden;
+  background: #f4eef6;
+  box-shadow: inset 0 0 0 1px rgba(121, 48, 136, 0.2666666667);
+}
+.efficacy__dose-liquid {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--efficacy-purple);
+  transform: scaleY(var(--dose-fill, 1));
+  transform-origin: bottom;
+  pointer-events: none;
+}
+.efficacy__trial-arm--comparator .efficacy__dose-card--transfer {
+  background: #eee;
+}
+.efficacy__trial-arm--comparator .efficacy__dose-liquid {
+  background: #858789;
+}
+
+.efficacy p.efficacy__description,
+.efficacy p.efficacy__definition,
+.efficacy p.efficacy__section-subtitle,
+.efficacy p.efficacy__esbl-description,
+.efficacy p.efficacy__trial-intro,
+.efficacy .efficacy__trial-copy,
+.efficacy .efficacy__definitions,
+.efficacy .efficacy__data-table,
+.efficacy .efficacy__dose-card p,
+.efficacy .efficacy__trial-or {
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.efficacy__pathogens .efficacy__table-scroll {
+  max-width: 1060px;
+  padding-left: 32px;
+  padding-right: 2px;
+}
+.efficacy__table-frame--pathogens {
+  --pathogen-frame-padding: 22px;
+}
+.efficacy__table-frame--pathogens .efficacy__data-table th:first-child {
+  padding-left: 28px;
+}
+.efficacy__table-frame--pathogens .efficacy__data-table tbody th {
+  position: relative;
+  height: 64px;
+}
+.efficacy__table-frame--pathogens .efficacy__pathogen-name {
+  display: block;
+}
+.efficacy__table-frame--pathogens .efficacy__pathogen-icon {
+  position: absolute;
+  left: calc(-1 * var(--pathogen-frame-padding) - 29px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 56px;
+  height: 56px;
+  background: white;
+}
+@container efficacy (max-width: 850px) {
+  .efficacy__table-frame--pathogens {
+    --pathogen-frame-padding: 12px;
+  }
+  .efficacy__table-frame--pathogens .efficacy__data-table th:first-child {
+    padding-left: 22px;
+  }
+  .efficacy__table-frame--pathogens .efficacy__pathogen-icon {
+    width: 44px;
+    height: 48px;
+    left: calc(-1 * var(--pathogen-frame-padding) - 23px);
+  }
+  .efficacy__pathogens .efficacy__table-scroll {
+    padding-left: 26px;
+  }
+}/*# sourceMappingURL=efficacy.css.map */

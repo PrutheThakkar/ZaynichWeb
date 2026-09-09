@@ -230,12 +230,12 @@
   &__warning-watermark { position: absolute; right: -48px; bottom: 54px; z-index: -1; opacity: .65; .safety-profile__warning-icon { width: 310px; color: white; } }
   &__contraindications {
     padding: 48px 24px 44px;
-    > h2 { max-width: 515px; margin-bottom: 34px; }
+    > h2 {  margin-bottom: 34px; }
     > p { max-width: 1000px; margin: 0 auto; font-size: clamp(18px, 1.4cqw, 20px); line-height: 1.25; }
   }
   &__renal {
     padding: 48px 28px;
-    > h2 { max-width: 515px; margin-bottom: 40px; }
+    > h2 {  margin-bottom: 40px; }
   }
   &__renal-copy { max-width: 1030px; margin: 0 auto 44px; font-size: clamp(18px, 1.4cqw, 20px); line-height: 1.3; p + p { margin-top: 24px; } }
   &__kidney-watermark { position: absolute; left: -75px; top: 50px; width: 480px; height: auto; opacity: .05; z-index: -1; pointer-events: none; }

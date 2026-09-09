@@ -72,7 +72,7 @@
   &__outcomes, &__pathogens { padding: 60px 28px 64px !important; }
   &__outcomes { background: radial-gradient(ellipse at 65% 35%, #fff, #fcf5ff 50%, #f5e9fc); }
   h2.efficacy__section-title {
-    max-width: 910px;
+    
     margin: 0 auto;
     font-family: inherit;
     font-weight: 400;
@@ -129,7 +129,7 @@
     overflow: hidden;
     padding: 54px 24px 72px !important;
     background: radial-gradient(ellipse at 65% 35%, #fff, #fcf5ff 50%, #f5e9fc);
-    h2.efficacy__section-title { max-width: 760px; }
+    h2.efficacy__section-title {  }
   }
   p.efficacy__esbl-description { max-width: 900px; margin: 42px auto 56px; font-size: clamp(19px, 1.7cqw, 24px); line-height: 1.3; }
   &__esbl-charts {
@@ -145,7 +145,7 @@
   &__thumb-watermark { position: absolute; z-index: -1; width: 320px; height: 360px; right: -24px; bottom: 68px; color: white; opacity: .8; }
   &__trial {
     padding: 60px 24px 100px !important;
-    h2.efficacy__section-title { max-width: 515px; }
+    h2.efficacy__section-title {  }
   }
   p.efficacy__trial-intro { max-width: 1050px; margin: 32px auto 30px; font-size: clamp(18px, 1.4cqw, 21px); line-height: 1.35; }
   &__trial-arms { display: grid; grid-template-columns: minmax(0, 1fr) 40px minmax(0, 1fr); gap: 12px; max-width: 1080px; margin: 0 auto 72px; }

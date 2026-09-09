@@ -104,7 +104,7 @@ export default function ZaynichJourneyPage() {
             <p className="zaynich-approval__closing">
               For Wockhardt, ZAYNICH<sup>®</sup> represents the culmination of decades of perseverance,
               scientific excellence, and belief in the power of innovation to improve and save lives.{" "}
-              <strong>Ultimately, life wins!</strong>
+              
             </p>
           </div>
         </div>

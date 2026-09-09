@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .spectrum-table-section {
   --spectrum-purple: #7b2b91;
   --spectrum-purple-dark: #702283;
@@ -43,12 +44,26 @@
 
 .spectrum-table {
   width: 100%;
-  min-width: 1500px;
+  table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0;
   color: #151515;
-  font-size: 16px;
-  line-height: 1.15;
+  font-size: clamp(11px, 0.95vw, 15px);
+  line-height: 1.2;
+}
+.spectrum-table th:nth-child(1),
+.spectrum-table td:nth-child(1) {
+  width: 14%;
+}
+.spectrum-table th:nth-child(2),
+.spectrum-table td:nth-child(2) {
+  width: 17%;
+}
+.spectrum-table th:nth-child(n+3),
+.spectrum-table td:nth-child(n+3) {
+  width: 11.5%;
+}
+.spectrum-table {
   /*
    * Every column receives its own visual card using
    * inset borders and outer shadows.
@@ -61,8 +76,9 @@
   position: relative;
 }
 .spectrum-table thead th {
-  height: 108px;
-  padding: 18px 16px;
+  height: auto;
+  min-height: 72px;
+  padding: 12px 8px;
   color: var(--spectrum-purple);
   background: #ffffff;
   border-top: 1px solid var(--spectrum-border);
@@ -98,8 +114,9 @@
 }
 .spectrum-table tbody th,
 .spectrum-table tbody td {
-  height: 66px;
-  padding: 7px 16px;
+  height: auto;
+  min-height: 48px;
+  padding: 8px 8px;
   background: rgba(255, 255, 255, 0.94);
   box-shadow: 4px 0 2px rgba(37, 28, 43, 0.34), -2px 0 4px rgba(37, 28, 43, 0.1) !important;
   vertical-align: middle;
@@ -110,7 +127,6 @@
    */
 }
 .spectrum-table tbody th {
-  width: 220px;
   border-left: 1px solid var(--spectrum-border);
   border-right: 1px solid var(--spectrum-border);
   font-weight: 400;
@@ -118,8 +134,8 @@
 }
 .spectrum-table tbody th em {
   display: block;
-  font-size: 18px;
-  line-height: 1.05;
+  font-size: clamp(12px, 1.05vw, 16px);
+  line-height: 1.1;
 }
 .spectrum-table tbody {
   /*
@@ -127,7 +143,6 @@
    */
 }
 .spectrum-table tbody td:nth-child(2) {
-  width: 300px;
   border-right: 1px solid var(--spectrum-border);
   text-align: center;
 }
@@ -140,7 +155,6 @@
    */
 }
 .spectrum-table tbody td:nth-child(n+3) {
-  width: 178px;
   border-right: 0;
   border-left: 0;
   text-align: center;
@@ -174,14 +188,14 @@
 }
 .spectrum-table__drug--featured .drug-name {
   display: block;
-  font-size: 40px;
+  font-size: clamp(16px, 1.7vw, 24px);
   font-weight: 700;
   line-height: 1;
 }
 .spectrum-table__drug--featured small {
   display: block;
-  margin-top: 8px;
-  font-size: 8px;
+  margin-top: 6px;
+  font-size: clamp(7px, 0.6vw, 9px);
   font-weight: 500;
   line-height: 1.2;
 }
@@ -203,14 +217,19 @@ tbody tr:last-child .spectrum-table__featured-cell {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 112px;
-  min-height: 46px;
+  width: clamp(32px, 3.2vw, 52px);
+  min-height: clamp(26px, 2.6vw, 40px);
   background: var(--spectrum-cell);
   border-radius: 5px;
-  font-size: 43px;
+  font-size: clamp(15px, 1.5vw, 22px);
   font-weight: 700;
   line-height: 1;
   text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.9);
+}
+.coverage-mark img {
+  display: block;
+  width: 1em;
+  height: 1em;
 }
 .coverage-mark--yes {
   color: var(--spectrum-green);
@@ -220,7 +239,7 @@ tbody tr:last-child .spectrum-table__featured-cell {
 }
 .coverage-mark--variable {
   color: var(--spectrum-blue);
-  font-size: 34px;
+  font-size: clamp(13px, 1.25vw, 18px);
 }
 
 .spectrum-legend {
@@ -230,12 +249,11 @@ tbody tr:last-child .spectrum-table__featured-cell {
   gap: 20px;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 14px 0 0 auto;
+  margin: 14px auto 24px 0;
   padding: 10px 18px;
   background: rgba(255, 255, 255, 0.96);
   border-radius: 10px;
   box-shadow: 0 6px 16px rgba(37, 28, 43, 0.08);
-  margin-bottom: 40px;
 }
 .spectrum-legend__item {
   display: flex;
@@ -258,6 +276,15 @@ tbody tr:last-child .spectrum-table__featured-cell {
   font-size: 24px;
 }
 
+.spectrum-table-section__rotate-hint {
+  display: none;
+  margin: 14px 0 0;
+  color: #6b5674;
+  font-size: 13px;
+  font-style: italic;
+  text-align: center;
+}
+
 @media (max-width: 900px) {
   .spectrum-table-section {
     padding: 58px 20px 70px;
@@ -269,6 +296,38 @@ tbody tr:last-child .spectrum-table__featured-cell {
     justify-content: flex-start;
     margin-right: auto;
     margin-left: 0;
+  }
+}
+/* Below tablet, columns get too cramped to shrink further — fall back to a
+   scrollable, tighter-spaced table instead of squeezing 8 columns to fit. */
+@media (max-width: 768px) {
+  .spectrum-table {
+    table-layout: auto;
+    min-width: 720px;
+    font-size: 12px;
+  }
+  .spectrum-table thead th {
+    min-height: 56px;
+    padding: 8px 6px;
+  }
+  .spectrum-table tbody th,
+  .spectrum-table tbody td {
+    min-height: 40px;
+    padding: 6px 6px;
+  }
+  .spectrum-table__drug--featured .drug-name {
+    font-size: 16px;
+  }
+  .coverage-mark {
+    width: 30px;
+    min-height: 26px;
+    font-size: 14px;
+  }
+  .coverage-mark--variable {
+    font-size: 12px;
+  }
+  .spectrum-table-section__rotate-hint {
+    display: block;
   }
 }
 @media (max-width: 600px) {

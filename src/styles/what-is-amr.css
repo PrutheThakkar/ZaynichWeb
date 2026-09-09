@@ -715,7 +715,7 @@
 .amr-risk__callout p {
   max-width: 920px;
   margin: 0 auto;
-  color: rgba(123, 43, 145, 0.78);
+  color: var(--risk-purple);
   line-height: 1.25;
 }
 
@@ -780,8 +780,6 @@
   .amr-risk__top {
     grid-template-columns: 1fr;
     gap: 54px;
-    display: flex;
-    flex-direction: column-reverse;
   }
   .amr-risk__content {
     max-width: 760px;
@@ -798,6 +796,12 @@
 @media (max-width: 760px) {
   .amr-risk {
     padding: 50px 16px 0;
+  }
+  .amr-risk__metrics {
+    order: 2;
+  }
+  .amr-risk__content {
+    order: 1;
   }
   .amr-risk__eyebrow {
     margin-bottom: 30px;

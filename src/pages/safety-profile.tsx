@@ -195,7 +195,7 @@ export default function SafetyProfilePage() {
 
         <section className="safety-profile__contraindications" aria-labelledby="contraindications-title">
           <h2 className="safety-profile__pill" id="contraindications-title">CONTRAINDICATIONS</h2>
-          <p>ZAYNICH is contraindicated in patients with a known history of serious hypersensitivity to:<br />cefepime or zidebactam<br />or<br />other beta-lactam antibacterial drugs</p>
+          <p>ZAYNICH is contraindicated in patients with a known history of serious hypersensitivity to: cefepime or zidebactam or other beta-lactam antibacterial drugs</p>
         </section>
 
         <section className="safety-profile__renal" aria-labelledby="renal-function-title">
