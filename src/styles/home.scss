@@ -86,12 +86,6 @@
      */
     transform: none;
     transition: none;
-
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
   }
 }
 
@@ -204,12 +198,22 @@
 }
 
 .brand-logo__heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3em;
   margin: 0;
   font-family: "Montserrat-semibold", "Montserrat", Arial, sans-serif;
   font-size: clamp(28px, 3vw, 46px);
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
+}
+
+.brand-logo__wing {
+  display: block;
+  width: 0.45em;
+  height: auto;
 }
 
 .brand-logo__name {
