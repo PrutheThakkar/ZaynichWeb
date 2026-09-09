@@ -178,6 +178,7 @@
     li { padding-left: 0; margin-bottom: 12px; &::marker { color: var(--safety-purple); } }
   }
   &__precaution-icon { width: 76px; height: 76px; flex-shrink: 0; color: var(--safety-purple); }
+  &__precaution-icon--bacteria { height: auto; }
   &__hypersensitivity { padding-right: 38px; border-right: 2px dashed #a65bbb; }
   &__infection { grid-column: 1 / -1; }
 
@@ -237,7 +238,7 @@
     > h2 { max-width: 515px; margin-bottom: 40px; }
   }
   &__renal-copy { max-width: 1030px; margin: 0 auto 44px; font-size: clamp(18px, 1.4cqw, 20px); line-height: 1.3; p + p { margin-top: 24px; } }
-  &__kidney-watermark { position: absolute; left: -35px; top: 50px; width: 480px; height: auto; opacity: .18; z-index: -1; pointer-events: none; }
+  &__kidney-watermark { position: absolute; left: -75px; top: 50px; width: 480px; height: auto; opacity: .05; z-index: -1; pointer-events: none; }
   &__dosing-link {
     display: block;
     max-width: 530px;

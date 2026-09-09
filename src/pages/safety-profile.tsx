@@ -50,6 +50,17 @@ function WarningIcon() {
 }
 
 function PrecautionIcon({ type }: { type: "hand" | "brain" | "bacteria" }) {
+  if (type === "bacteria") {
+    return (
+      <img
+        className="safety-profile__precaution-icon safety-profile__precaution-icon--bacteria"
+        src="/assets/img/Clostridioides-icon.svg"
+        alt=""
+        aria-hidden="true"
+      />
+    );
+  }
+
   return (
     <svg className="safety-profile__precaution-icon" viewBox="0 0 76 76" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <circle cx="38" cy="38" r="36" strokeWidth="1" />
@@ -61,11 +72,6 @@ function PrecautionIcon({ type }: { type: "hand" | "brain" | "bacteria" }) {
       {type === "brain" && <>
         <path d="M36 15c-6-5-12 1-11 6-8-2-12 5-8 10-8 3-7 12-1 15-4 7 2 13 8 12 0 8 9 10 12 4ZM40 15c6-5 12 1 11 6 8-2 12 5 8 10 8 3 7 12 1 15 4 7-2 13-8 12 0 8-9 10-12 4Z" />
         <path d="M26 23q7 1 5 8m-11 3q8-2 8 6m-7 8q7-5 10 2m-3 8 3-4m18-31q-7 1-5 8m11 3q-8-2-8 6m7 8q-7-5-10 2m3 8-3-4M38 11v55" />
-      </>}
-      {type === "bacteria" && <>
-        <rect x="19" y="30" width="39" height="16" rx="8" />
-        <path d="m23 30-5-8-7-2m19 10-2-13-5-4m14 17 2-11-4-7m10 18 5-10 6-3m-2 15 8-5 5 1M20 36l-9-2-5 4m14 5-7 5-4-1m17-1-4 11-6 4m18-15-2 13 4 5m6-18 5 10-1 7m5-18 9 6 2 6m-5-18 9-1 5 5" />
-        <path d="m28 35 4 6m4-6 4 6m4-6 4 6" />
       </>}
     </svg>
   );
