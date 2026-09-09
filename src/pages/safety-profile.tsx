@@ -193,7 +193,7 @@ export default function SafetyProfilePage() {
         </section>
 
         <section className="safety-profile__renal" aria-labelledby="renal-function-title">
-          <img className="safety-profile__kidney-watermark" src="/assets/img/icon%20-01.svg" alt="" aria-hidden="true" />
+          <img className="safety-profile__kidney-watermark" src="/assets/img/kidney.svg" alt="" aria-hidden="true" />
           <h2 className="safety-profile__pill" id="renal-function-title">RENAL FUNCTION MATTERS</h2>
           <div className="safety-profile__renal-copy">
             <p className="safety-profile__purple">Adjust ZAYNICH dosing in patients with renal impairment</p>
