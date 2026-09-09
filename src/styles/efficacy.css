@@ -51,7 +51,7 @@
 .efficacy__brand {
   display: block;
   margin-bottom: 16px;
-  font-size: 1.4em;
+  font-size: 1em;
   font-family: "Montserrat-bold";
 }
 .efficacy__description {
@@ -61,7 +61,7 @@
   line-height: 1.35;
 }
 .efficacy__results {
-  padding: 32px 24px !important;
+  padding: 60px 24px !important;
   border-bottom: 12px solid #fcf3ff;
 }
 .efficacy__comparison {
@@ -126,13 +126,11 @@
   stroke-linecap: round;
 }
 .efficacy__versus {
+  display: block;
   align-self: start;
   margin-top: 65px;
-  color: var(--efficacy-purple);
-  font-size: clamp(48px, 6cqw, 86px);
-  line-height: 1;
-  font-weight: 700;
-  font-style: italic;
+  width: clamp(30px, 3.8cqw, 54px);
+  height: auto;
 }
 .efficacy__patients {
   position: relative;
@@ -264,7 +262,7 @@
   }
   .efficacy__versus {
     margin: 0;
-    font-size: 38px;
+    width: 24px;
   }
   .efficacy__patients {
     width: 220px;
@@ -292,7 +290,6 @@
   background: radial-gradient(ellipse at 65% 35%, #fff, #fcf5ff 50%, #f5e9fc);
 }
 .efficacy h2.efficacy__section-title {
-  max-width: 910px;
   margin: 0 auto;
   font-family: inherit;
   font-weight: 400;
@@ -351,9 +348,8 @@
   overflow-wrap: break-word;
 }
 .efficacy__data-table thead th {
-  padding-top: 4px;
-  padding-bottom: 22px;
-  vertical-align: top;
+  padding: 16px 12px;
+  vertical-align: middle;
 }
 .efficacy__data-table th:first-child {
   text-align: left;
@@ -367,6 +363,10 @@
 }
 .efficacy__table-frame--outcomes .efficacy__data-table tr > :last-child {
   border-left: 1px solid #a75eb8;
+}
+.efficacy__table-frame--outcomes .efficacy__data-table th:first-child {
+  text-align: center;
+  padding-left: 12px;
 }
 .efficacy__definitions {
   max-width: 1150px;
@@ -413,6 +413,8 @@
   width: 48px;
   height: 48px;
   flex-shrink: 0;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .efficacy__table-frame--pathogens .efficacy__data-table th:first-child {
   padding-left: 4px;
@@ -483,9 +485,6 @@
   padding: 54px 24px 72px !important;
   background: radial-gradient(ellipse at 65% 35%, #fff, #fcf5ff 50%, #f5e9fc);
 }
-.efficacy__esbl h2.efficacy__section-title {
-  max-width: 760px;
-}
 .efficacy p.efficacy__esbl-description {
   max-width: 900px;
   margin: 42px auto 56px;
@@ -519,9 +518,6 @@
 }
 .efficacy__trial {
   padding: 60px 24px 100px !important;
-}
-.efficacy__trial h2.efficacy__section-title {
-  max-width: 515px;
 }
 .efficacy p.efficacy__trial-intro {
   max-width: 1050px;

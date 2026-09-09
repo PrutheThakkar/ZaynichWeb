@@ -26,6 +26,20 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "AcuminVariableConcept";
+  src: url("/fonts/AcuminVariableConcept.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Oswald-Regular";
+  src: url("/fonts/Oswald-Regular.ttf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 body{
   font-family: "Montserrat";
@@ -550,4 +564,8 @@ section{
     color: #7b2b91;
     text-decoration: underline;
   }
+}
+
+.top-header__message{
+text-align: right;
 }

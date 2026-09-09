@@ -142,7 +142,6 @@
   padding: 38px 24px 76px;
 }
 .safety-profile__reactions h2 {
-  /* max-width: 665px; */
   margin: 0 auto 28px;
   color: #7b2b91;
   font-weight: 400;
@@ -292,7 +291,6 @@
   background: radial-gradient(ellipse at 65% 30%, #fff 0%, #fcf5ff 50%, #f5e9fc 100%);
 }
 .safety-profile__discontinuations > h2 {
-  max-width: 730px;
   margin-bottom: 36px;
 }
 .safety-profile__discontinuations > p {
@@ -366,11 +364,10 @@
   align-items: center;
   justify-content: center;
   gap: 24px;
-  max-width: 840px;
   margin: 0 auto 60px;
 }
 .safety-profile__precautions-heading h2 {
-  flex: 1;
+  margin: 0;
 }
 .safety-profile__warning-icon {
   width: 96px;
@@ -415,6 +412,9 @@
   height: 76px;
   flex-shrink: 0;
   color: var(--safety-purple);
+}
+.safety-profile__precaution-icon--bacteria {
+  height: auto;
 }
 .safety-profile__hypersensitivity {
   padding-right: 38px;
@@ -506,7 +506,6 @@
   padding: 44px 28px 54px;
 }
 .safety-profile__additional > h2 {
-  max-width: 770px;
   margin-bottom: 22px;
 }
 .safety-profile__additional-grid {
@@ -551,7 +550,6 @@
   padding: 48px 24px 44px;
 }
 .safety-profile__contraindications > h2 {
-  max-width: 515px;
   margin-bottom: 34px;
 }
 .safety-profile__contraindications > p {
@@ -564,7 +562,6 @@
   padding: 48px 28px;
 }
 .safety-profile__renal > h2 {
-  max-width: 515px;
   margin-bottom: 40px;
 }
 .safety-profile__renal-copy {
@@ -578,11 +575,11 @@
 }
 .safety-profile__kidney-watermark {
   position: absolute;
-  left: -35px;
+  left: -75px;
   top: 50px;
   width: 480px;
   height: auto;
-  opacity: 1;
+  opacity: 0.05;
   z-index: -1;
   pointer-events: none;
 }
@@ -625,7 +622,6 @@
   }
   .safety-profile__kidney-watermark {
     width: 320px;
-    opacity: 0.8;
   }
   .safety-profile__warning-watermark {
     opacity: 0.35;
@@ -840,10 +836,9 @@
 }
 
 .safety-profile__precautions {
-  padding: 56px 28px 54px !important;
+  padding: 100px 28px !important;
 }
 .safety-profile__precautions-heading {
-  max-width: 840px;
   gap: 24px;
   margin-bottom: 60px;
 }
@@ -942,8 +937,4 @@
   .safety-profile__precautions-grid h3 {
     font-size: 19px;
   }
-}
-
-.safety-profile__additional > h2.safety-profile__pill {
-  max-width: 1200px;
 }/*# sourceMappingURL=safety-profile.css.map */

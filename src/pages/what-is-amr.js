@@ -103,8 +103,8 @@ export default function WhatIsAmrPage() {
         <div className="amr-future__container">
           <div className="amr-future__content">
             <h2 className="section-title section-title--left" id="amrFutureTitle">
-              What Happens If
-              <span>AMR </span>Goes Untreated
+              What Happens If 
+              <span> AMR </span>Goes Untreated
             </h2>
 
             <p className="amr-future__description">

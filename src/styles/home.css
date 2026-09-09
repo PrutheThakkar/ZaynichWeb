@@ -27,6 +27,7 @@
   position: relative;
   width: 100%;
   height: calc(100vh - 48px);
+  padding: 0 !important;
   overflow: hidden;
   background: #12091b;
 }
@@ -60,7 +61,7 @@
 }
 
 .bacteria-hero-swiper {
-  position: absolute;
+  position: absolute !important;
   inset: 0;
   z-index: 1;
 }
@@ -76,11 +77,6 @@
    */
   transform: none;
   transition: none;
-}
-.bacteria-hero-slide .brand-logo img {
-  display: block;
-  width: 100%;
-  height: auto;
 }
 
 /*
@@ -162,7 +158,7 @@
   width: min(720px, 46vw);
   transform: translateY(-50%);
   pointer-events: none;
-  text-align: center;
+  text-align: left;
   transition: opacity 0.45s ease, transform 0.45s ease;
 }
 @media (max-width: 1920px) {
@@ -196,10 +192,57 @@
   }
 }
 
-.brand-logo img {
+.brand-logo__text {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
+  color: #ffffff;
+}
+
+.brand-logo__wing {
   display: block;
-  width: 100%;
+  width: clamp(38px, 4.4vw, 68px);
   height: auto;
+  flex-shrink: 0;
+}
+
+.brand-logo__copy {
+  text-align: left;
+}
+
+.brand-logo__heading {
+  margin: 0;
+  font-family: "Oswald-Regular";
+  font-size: clamp(28px, 3vw, 46px);
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.brand-logo__name {
+  font-family: "Montserrat-bold";
+  font-size: 60px;
+  font-weight: 900;
+  letter-spacing: 3px;
+}
+.brand-logo__name sup {
+  font-size: 0.3em;
+  font-family: "AcuminVariableConcept";
+}
+
+.brand-logo__subtitle {
+  margin: 10px 0 0;
+  font-family: "AcuminVariableConcept";
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 400;
+}
+
+.brand-logo__tagline {
+  margin: 4px 0 0;
+  font-family: "AcuminVariableConcept";
+  font-size: clamp(14px, 1.1vw, 17px);
+  font-weight: 400;
+  opacity: 0.85;
 }
 
 .hero-cta {
@@ -879,10 +922,7 @@ body {
   visibility: hidden;
   pointer-events: none;
 }
-.bacteria-hero-rotator .brand-logo img {
-  display: block;
-  width: 100%;
-  height: auto;
+.bacteria-hero-rotator .brand-logo .brand-logo__text {
   opacity: 0;
   transform: translate3d(0, 160px, 0);
   will-change: transform, opacity;
@@ -891,7 +931,7 @@ body {
   opacity: 1;
   visibility: visible;
 }
-.bacteria-hero-rotator .brand-logo.is-animating img {
+.bacteria-hero-rotator .brand-logo.is-animating .brand-logo__text {
   animation: zaynichLogoEnter 1.25s 0.2s both;
 }
 .bacteria-hero-rotator {
@@ -903,13 +943,13 @@ body {
   opacity: 1 !important;
   visibility: visible !important;
 }
-.bacteria-hero-rotator .swiper-slide-active .brand-logo img {
+.bacteria-hero-rotator .swiper-slide-active .brand-logo .brand-logo__text {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bacteria-hero-rotator .brand-logo.is-animating img {
+  .bacteria-hero-rotator .brand-logo.is-animating .brand-logo__text {
     animation-duration: 0.01ms;
     animation-delay: 0ms;
   }
@@ -935,5 +975,73 @@ body {
   100% {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+.autoplay-video {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.autoplay-video__player {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
+
+.autoplay-video__play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(20, 10, 30, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  animation: autoplayVideoPulse 2.2s ease-in-out infinite;
+}
+.autoplay-video__play-button span {
+  display: inline-flex;
+  font-size: 16px;
+  line-height: 1;
+}
+.autoplay-video__play-button:hover, .autoplay-video__play-button:focus-visible {
+  background: #7a278e;
+  border-color: #fff;
+  transform: translate(-50%, -50%) scale(1.05);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.45);
+  animation-play-state: paused;
+}
+.autoplay-video__play-button:active {
+  transform: translate(-50%, -50%) scale(0.97);
+}
+
+@keyframes autoplayVideoPulse {
+  0%, 100% {
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 0 0 rgba(255, 255, 255, 0.25);
+  }
+  50% {
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35), 0 0 0 8px rgba(255, 255, 255, 0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .autoplay-video__play-button {
+    animation: none;
   }
 }/*# sourceMappingURL=home.css.map */
