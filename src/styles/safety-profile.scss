@@ -83,7 +83,7 @@
   }
   &__duration { padding: 0 24px; }
   &__reactions { padding: 38px 24px 76px; }
-  &__reactions h2 { max-width: 665px; margin: 0 auto 28px; color: var(--safety-purple); font-size: clamp(24px, 2.1cqw, 30px); font-weight: 400; }
+  &__reactions h2 { max-width: 665px; margin: 0 auto 28px; color: #7b2b91; font-weight: 400; line-height: 0.98; }
   &__summary { line-height: 1.4; span { color: var(--safety-purple); } }
   &__table-wrap { max-width: 950px; margin: 48px auto 64px; border: 1.5px solid #b989c7; border-radius: 46px; position: relative; isolation: isolate;
     &::before { content: ""; position: absolute; z-index: -1; top: -13px; bottom: -18px; left: 33.333%; width: 33.333%; border-radius: 38px; background: var(--safety-purple); box-shadow: 0 2px 9px #0005; }
@@ -119,10 +119,9 @@
   &__purple { color: var(--safety-purple); }
   &__pill {
     margin: 0 auto;
-    color: var(--safety-purple);
-    font-size: clamp(24px, 2.1cqw, 30px) !important;
+    color: #7b2b91;
     font-weight: 400;
-    line-height: 1.3;
+    line-height: 0.98;
   }
   &__discontinuations {
     padding: 64px 28px 66px;
@@ -190,11 +189,10 @@
   }
   @container safety-page (max-width: 700px) {
     &__discontinuations { padding: 36px 16px; }
-    &__pill { font-size: 23px !important; }
     &__discontinuation-card { display: block; padding: 24px 20px; margin: 28px auto; ul { display: block; } li { border: 0 !important; padding: 8px 0 8px 24px; } }
     &__discontinuation-label { padding: 0 0 16px; margin-bottom: 12px !important; border-right: 0; border-bottom: 1px solid #a65bbb; &::after { display: none; } }
     &__precautions { padding: 36px 20px; }
-    &__precautions-heading { gap: 10px; margin-bottom: 36px; h2 { font-size: 20px; padding: 14px 10px; } }
+    &__precautions-heading { gap: 10px; margin-bottom: 36px; }
     &__warning-icon { width: 36px; }
     &__precautions-grid { grid-template-columns: 1fr; gap: 30px; }
     &__hypersensitivity { padding: 0 0 28px; border-right: 0; border-bottom: 2px dashed #a65bbb; }
@@ -302,7 +300,6 @@
     &__precautions-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
     &__hypersensitivity { padding: 0 0 28px; border-right: 0; border-bottom: 2px dashed #a65bbb; }
     &__precautions-heading { gap: 12px; }
-    &__precautions-heading h2 { font-size: 22px; }
     &__precautions-heading > svg { width: 44px; }
     &__additional-grid { gap: 24px; }
   }
@@ -315,7 +312,6 @@
     &__count strong { font-size: clamp(64px, 18cqw, 82px); }
     &__count span { font-size: 20px; }
     &__treatment { flex-basis: clamp(100px, 27cqw, 120px); font-size: 17px; }
-    &__pill { font-size: 22px !important; }
     &__discontinuation-card ul { display: block; }
     &__discontinuation-card li { font-size: 18px; line-height: 1.4; }
     &__table-wrap { margin-inline: 0; }
@@ -334,9 +330,7 @@
   @container safety-page (max-width: 380px) {
     &__precautions-heading { gap: 8px; }
     &__precautions-heading > svg { width: 28px; }
-    &__precautions-heading h2 { font-size: 18px; }
     &__precautions, &__additional, &__renal { padding-inline: 16px; }
-    &__reactions h2, &__pill { font-size: 21px !important; }
   }
 }
 
