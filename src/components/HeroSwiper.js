@@ -188,7 +188,13 @@ export default function HeroSwiper({ slides = [] }) {
                   />
                 )}
                 <div className="brand-logo">
-                  <img src="/assets/img/Text.png" alt="Zaynich is coming" />
+                  <div className="brand-logo__text">
+                    <p className="brand-logo__heading">
+                      <span className="brand-logo__name">ZAYNICH<sup>TM</sup></span> IS COMING
+                    </p>
+                    <p className="brand-logo__subtitle">cefepime and zidebactam</p>
+                    <p className="brand-logo__tagline">For Injection (3g)</p>
+                  </div>
                   <Link to="/mechanism-of-action/" className="hero-cta">
                     Explore the Science
                   </Link>

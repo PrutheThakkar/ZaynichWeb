@@ -199,10 +199,41 @@
    
 }
 
-.brand-logo img {
-  display: block;
-  width: 100%;
-  height: auto;
+.brand-logo__text {
+  color: #ffffff;
+}
+
+.brand-logo__heading {
+  margin: 0;
+  font-family: "Montserrat-semibold", "Montserrat", Arial, sans-serif;
+  font-size: clamp(28px, 3vw, 46px);
+  font-weight: 700;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.brand-logo__name {
+  font-family: "Montserrat-bold", "Montserrat", Arial, sans-serif;
+  font-weight: 900;
+
+  sup {
+    font-size: 0.5em;
+  }
+}
+
+.brand-logo__subtitle {
+  margin: 10px 0 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(18px, 1.6vw, 24px);
+  font-weight: 400;
+}
+
+.brand-logo__tagline {
+  margin: 4px 0 0;
+  font-family: "Montserrat", Arial, sans-serif;
+  font-size: clamp(14px, 1.1vw, 17px);
+  font-weight: 400;
+  opacity: 0.85;
 }
 
 .hero-cta {
@@ -1088,10 +1119,7 @@ body {
     visibility: hidden;
     pointer-events: none;
 
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
+    .brand-logo__text {
       opacity: 0;
       transform: translate3d(0, 160px, 0);
       will-change: transform, opacity;
@@ -1101,7 +1129,7 @@ body {
       opacity: 1;
       visibility: visible;
 
-      img {
+      .brand-logo__text {
         animation: zaynichLogoEnter 1.25s 0.2s both;
       }
     }
@@ -1115,14 +1143,14 @@ body {
     visibility: visible !important;
   }
 
-  .swiper-slide-active .brand-logo img {
+  .swiper-slide-active .brand-logo .brand-logo__text {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .bacteria-hero-rotator .brand-logo.is-animating img {
+  .bacteria-hero-rotator .brand-logo.is-animating .brand-logo__text {
     animation-duration: 0.01ms;
     animation-delay: 0ms;
   }
