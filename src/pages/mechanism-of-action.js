@@ -17,7 +17,10 @@ export default function MechanismOfActionPage() {
 
       <section className="img-wrapper">
         <div className="container">
-          <img src="/assets/img/molecule-img.png" alt="molecule img" />
+          <video controls playsInline preload="metadata">
+            <source src="/assets/vid/ZAYNICH%20MOA%20US%20080926.mp4" type="video/mp4" />
+            Your browser does not support the video element.
+          </video>
         </div>
       </section>
 
