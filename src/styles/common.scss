@@ -480,17 +480,21 @@ section{
 }
 
 .sitemap__list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px 48px;
+  columns: 2;
+  column-gap: 48px;
 
   margin: 0;
   padding: 0;
   list-style: none;
 
   @media (max-width: 700px) {
-    grid-template-columns: 1fr;
+    columns: 1;
   }
+}
+
+.sitemap__item {
+  margin-bottom: 32px;
+  break-inside: avoid;
 }
 
 .sitemap__heading {
