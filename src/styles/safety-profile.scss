@@ -83,7 +83,7 @@
   }
   &__duration { padding: 0 24px; }
   &__reactions { padding: 38px 24px 76px; }
-  &__reactions h2 { max-width: 665px; margin: 0 auto 28px; padding: 19px 24px; border: 2px solid #6183ff; border-radius: 50px; color: var(--safety-purple); font-size: clamp(24px, 2.1cqw, 30px); font-weight: 400; }
+  &__reactions h2 { max-width: 665px; margin: 0 auto 28px; color: var(--safety-purple); font-size: clamp(24px, 2.1cqw, 30px); font-weight: 400; }
   &__summary { line-height: 1.4; span { color: var(--safety-purple); } }
   &__table-wrap { max-width: 950px; margin: 48px auto 64px; border: 1.5px solid #b989c7; border-radius: 46px; position: relative; isolation: isolate;
     &::before { content: ""; position: absolute; z-index: -1; top: -13px; bottom: -18px; left: 33.333%; width: 33.333%; border-radius: 38px; background: var(--safety-purple); box-shadow: 0 2px 9px #0005; }
@@ -119,9 +119,6 @@
   &__purple { color: var(--safety-purple); }
   &__pill {
     margin: 0 auto;
-    padding: 20px 28px;
-    border: 1px solid #a65bbb;
-    border-radius: 60px;
     color: var(--safety-purple);
     font-size: clamp(24px, 2.1cqw, 30px) !important;
     font-weight: 400;
@@ -193,7 +190,7 @@
   }
   @container safety-page (max-width: 700px) {
     &__discontinuations { padding: 36px 16px; }
-    &__pill { padding: 16px 18px; font-size: 23px !important; }
+    &__pill { font-size: 23px !important; }
     &__discontinuation-card { display: block; padding: 24px 20px; margin: 28px auto; ul { display: block; } li { border: 0 !important; padding: 8px 0 8px 24px; } }
     &__discontinuation-label { padding: 0 0 16px; margin-bottom: 12px !important; border-right: 0; border-bottom: 1px solid #a65bbb; &::after { display: none; } }
     &__precautions { padding: 36px 20px; }
@@ -305,7 +302,7 @@
     &__precautions-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
     &__hypersensitivity { padding: 0 0 28px; border-right: 0; border-bottom: 2px dashed #a65bbb; }
     &__precautions-heading { gap: 12px; }
-    &__precautions-heading h2 { font-size: 22px; padding: 16px 12px; }
+    &__precautions-heading h2 { font-size: 22px; }
     &__precautions-heading > svg { width: 44px; }
     &__additional-grid { gap: 24px; }
   }

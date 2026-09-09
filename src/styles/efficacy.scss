@@ -74,9 +74,6 @@
   h2.efficacy__section-title {
     max-width: 910px;
     margin: 0 auto;
-    padding: 20px 28px;
-    border: 1px solid #a75eb8;
-    border-radius: 60px;
     font-family: inherit;
     font-size: clamp(24px, 2.1cqw, 30px) !important;
     font-weight: 400;
@@ -119,7 +116,7 @@
   }
   @container efficacy (max-width: 600px) {
     &__outcomes, &__pathogens { padding: 36px 16px !important; }
-    h2.efficacy__section-title { font-size: 23px !important; padding: 16px; border-radius: 30px; }
+    h2.efficacy__section-title { font-size: 23px !important; }
     &__table-frame--outcomes { min-width: 710px; }
     &__table-frame--pathogens { min-width: 540px; }
     &__definitions { margin-top: 24px; font-size: 18px; line-height: 1.5; li { gap: 14px; } li + li { margin-top: 26px; } svg { width: 34px; height: 34px; } }
