@@ -83,7 +83,7 @@
   }
   &__duration { padding: 0 24px; }
   &__reactions { padding: 38px 24px 76px; }
-  &__reactions h2 { max-width: 665px; margin: 0 auto 28px; color: #7b2b91; font-weight: 400; line-height: 0.98; }
+  &__reactions h2 {  margin: 0 auto 28px; color: #7b2b91; font-weight: 400; line-height: 0.98; }
   &__summary { line-height: 1.4; span { color: var(--safety-purple); } }
   &__table-wrap { max-width: 950px; margin: 48px auto 64px; border: 1.5px solid #b989c7; border-radius: 46px; position: relative; isolation: isolate;
     &::before { content: ""; position: absolute; z-index: -1; top: -13px; bottom: -18px; left: 33.333%; width: 33.333%; border-radius: 38px; background: var(--safety-purple); box-shadow: 0 2px 9px #0005; }
@@ -126,7 +126,7 @@
   &__discontinuations {
     padding: 64px 28px 66px;
     background: radial-gradient(ellipse at 65% 30%, #fff 0%, #fcf5ff 50%, #f5e9fc 100%);
-    > h2 { max-width: 730px; margin-bottom: 36px; }
+    > h2 { margin-bottom: 36px; }
     > p { line-height: 1.4; }
   }
   &__discontinuation-card {
@@ -161,7 +161,7 @@
   }
   &__no-deaths { margin-top: 30px !important; }
   &__precautions { padding: 56px 28px 54px; }
-  &__precautions-heading { display: flex; align-items: center; justify-content: center; gap: 24px; max-width: 840px; margin: 0 auto 60px; h2 { flex: 1; } }
+  &__precautions-heading { display: flex; align-items: center; justify-content: center; gap: 24px; margin: 0 auto 60px; h2 { flex: 1; } }
   &__warning-icon { width: 96px; flex-shrink: 0; color: #5d5d5d; }
   &__precautions-grid {
     display: grid;
@@ -209,7 +209,7 @@
   }
   &__additional {
     padding: 44px 28px 54px;
-    > h2 { max-width: 770px; margin-bottom: 22px; }
+    > h2 {  margin-bottom: 22px; }
   }
   &__additional-grid {
     display: grid;
@@ -365,9 +365,9 @@
 
 // Warnings layout: bold labels, aligned icons, and a one-third/two-thirds split.
 .safety-profile {
-  &__precautions { padding: 56px 28px 54px !important; }
+  &__precautions { padding: 100px 28px !important; }
   &__precautions-heading {
-    max-width: 840px;
+    // max-width: 840px;
     gap: 24px;
     margin-bottom: 60px;
     > svg { width: 96px; }
@@ -419,6 +419,6 @@
 }
 
 .safety-profile__additional > h2.safety-profile__pill {
-  max-width: 1200px;
+  // max-width: 1200px;
 }
 
