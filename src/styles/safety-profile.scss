@@ -161,7 +161,7 @@
   }
   &__no-deaths { margin-top: 30px !important; }
   &__precautions { padding: 56px 28px 54px; }
-  &__precautions-heading { display: flex; align-items: center; justify-content: center; gap: 24px; margin: 0 auto 60px; h2 { flex: 1; } }
+  &__precautions-heading { display: flex; align-items: center; justify-content: center; gap: 24px; margin: 0 auto 60px; h2 { margin: 0; } }
   &__warning-icon { width: 96px; flex-shrink: 0; color: #5d5d5d; }
   &__precautions-grid {
     display: grid;
