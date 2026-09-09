@@ -103,7 +103,7 @@
   &__pathogens .efficacy__table-scroll { max-width: 1000px; padding-top: 22px; }
   &__table-frame--pathogens { border-radius: 16px; &::before { left: 50%; width: calc(25% - 11px); top: -22px; bottom: -16px; } }
   &__pathogen-name { display: flex; align-items: center; gap: 16px; }
-  &__pathogen-icon { width: 48px; height: 48px; flex-shrink: 0; }
+  &__pathogen-icon { width: 48px; height: 48px; flex-shrink: 0; object-fit: contain; }
   &__table-frame--pathogens .efficacy__data-table { th:first-child { padding-left: 4px; } tbody th, tbody td { padding-top: 7px; padding-bottom: 7px; } }
 
   @container efficacy (max-width: 850px) {

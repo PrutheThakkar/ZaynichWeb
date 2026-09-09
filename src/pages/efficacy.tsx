@@ -11,25 +11,19 @@ const efficacyOutcomes = [
 ];
 
 const pathogenResponses = [
-  ["Escherichia coli", "92% (162/176)", "69% (60/87)", "#80ba87"],
-  ["Klebsiella pneumoniae", "79% (41/52)", "63% (15/24)", "#d883b1"],
-  ["Proteus mirabilis", "88% (22/25)", "86% (6/7)", "#b674da"],
-  ["Enterobacter cloacae complex", "85% (11/13)", "57% (4/7)", "#c49b72"],
-  ["Pseudomonas aeruginosa", "57% (4/7)", "20% (1/5)", "#e5bd51"],
+  ["Escherichia coli", "92% (162/176)", "69% (60/87)", "/assets/img/icon-new-1.svg"],
+  ["Klebsiella pneumoniae", "79% (41/52)", "63% (15/24)", "/assets/img/icon-2-new.svg"],
+  ["Proteus mirabilis", "88% (22/25)", "86% (6/7)", "/assets/img/icon-3-new.svg"],
+  ["Enterobacter cloacae complex", "85% (11/13)", "57% (4/7)", "/assets/img/icon-4-new.svg"],
+  ["Pseudomonas aeruginosa", "57% (4/7)", "20% (1/5)", "/assets/img/icon-5-new.svg"],
 ];
 
 function CheckIcon() {
   return <svg viewBox="0 0 52 52" fill="none" aria-hidden="true"><path d="M29 5H12a7 7 0 0 0-7 7v28a7 7 0 0 0 7 7h28a7 7 0 0 0 7-7V24" stroke="currentColor" strokeWidth="5" strokeLinecap="round" /><path d="m16 24 9 11L46 8" stroke="currentColor" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }
 
-function PathogenIcon({ color }: { color: string }) {
-  return <svg className="efficacy__pathogen-icon" viewBox="0 0 64 64" style={{ color }} fill="none" aria-hidden="true">
-    <g transform="rotate(-25 32 32)" stroke="currentColor" strokeWidth="1.5">
-      <path d="M17 23 12 16m13 5-1-10m10 10 3-10m7 13 7-7m-1 13 10-2M17 40l-6 7m14-4-1 10m11-10 3 10m7-13 8 7M12 31l-9-2m49 8 9 2" />
-      <rect x="11" y="22" width="42" height="21" rx="10.5" fill="currentColor" fillOpacity=".3" />
-      <path d="m20 29 3 2m8 5 3-2m7-5 3 2m-25 6 3-1" strokeWidth="3" strokeLinecap="round" />
-    </g>
-  </svg>;
+function PathogenIcon({ src }: { src: string }) {
+  return <img className="efficacy__pathogen-icon" src={src} alt="" aria-hidden="true" />;
 }
 
 function PatientArrow({ comparator = false }: { comparator?: boolean }) {
@@ -148,7 +142,7 @@ export default function EfficacyPage() {
               <table className="efficacy__data-table" aria-describedby="efficacy-pathogens-subtitle">
                 <colgroup><col style={{ width: "50%" }} /><col style={{ width: "25%" }} /><col style={{ width: "25%" }} /></colgroup>
                 <thead><tr><th scope="col">Gram-negative pathogen</th><th scope="col">ZAYNICH</th><th scope="col">Meropenem</th></tr></thead>
-                <tbody>{pathogenResponses.map(([pathogen, zaynich, meropenem, color]) => <tr key={pathogen}><th scope="row"><span className="efficacy__pathogen-name"><PathogenIcon color={color} /><span>{pathogen}</span></span></th><td>{zaynich}</td><td>{meropenem}</td></tr>)}</tbody>
+                <tbody>{pathogenResponses.map(([pathogen, zaynich, meropenem, icon]) => <tr key={pathogen}><th scope="row"><span className="efficacy__pathogen-name"><PathogenIcon src={icon} /><span>{pathogen}</span></span></th><td>{zaynich}</td><td>{meropenem}</td></tr>)}</tbody>
               </table>
             </div>
           </div>
