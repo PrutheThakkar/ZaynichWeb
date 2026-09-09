@@ -25,8 +25,6 @@ export default function SafetyBar() {
       safetyBar.classList.add("is-expanded");
       toggleButton.setAttribute("aria-expanded", "true");
       toggleButton.setAttribute("aria-label", "Hide indication and usage summary");
-      const icon = toggleButton.querySelector("span");
-      if (icon) icon.textContent = "×";
     }
 
     function closePreview() {
@@ -34,8 +32,6 @@ export default function SafetyBar() {
       safetyBar.classList.remove("is-expanded");
       toggleButton.setAttribute("aria-expanded", "false");
       toggleButton.setAttribute("aria-label", "Show indication and usage summary");
-      const icon = toggleButton.querySelector("span");
-      if (icon) icon.textContent = "+";
     }
 
     function handleToggleClick(event) {
