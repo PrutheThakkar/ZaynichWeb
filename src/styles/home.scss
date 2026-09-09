@@ -214,7 +214,7 @@
 
 .brand-logo__heading {
   margin: 0;
-  font-family: "Montserrat-semibold", "Montserrat", Arial, sans-serif;
+  font-family: "Oswald-Regular";
   font-size: clamp(28px, 3vw, 46px);
   font-weight: 700;
   line-height: 1.1;
@@ -222,25 +222,25 @@
 }
 
 .brand-logo__name {
-  font-family: "Montserrat-bold", "Montserrat", Arial, sans-serif;
+  font-family: "Montserrat-bold";
+  font-size: 0.8em;
   font-weight: 900;
-   font-family: "AcuminVariableConcept";
 
   sup {
-    font-size: 0.5em;
+    font-size: 0.4em;
   }
 }
 
 .brand-logo__subtitle {
   margin: 10px 0 0;
-  font-family: "Montserrat", Arial, sans-serif;
+  font-family: "AcuminVariableConcept";
   font-size: clamp(18px, 1.6vw, 24px);
   font-weight: 400;
 }
 
 .brand-logo__tagline {
   margin: 4px 0 0;
-  font-family: "Montserrat", Arial, sans-serif;
+font-family: "AcuminVariableConcept";
   font-size: clamp(14px, 1.1vw, 17px);
   font-weight: 400;
   opacity: 0.85;
