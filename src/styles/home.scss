@@ -30,6 +30,7 @@
   width: 100%;
   height: calc(100vh - 48px);
   // min-height: 650px;
+  padding: 0 !important;
   overflow: hidden;
   background: #12091b;
   @media (max-width:1920px) {
@@ -57,7 +58,7 @@
   
 }
 .bacteria-hero-swiper {
-  position: absolute;
+  position: absolute !important;
   inset: 0;
   z-index: 1;
 }
