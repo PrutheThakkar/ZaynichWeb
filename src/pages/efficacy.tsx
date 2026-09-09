@@ -115,7 +115,7 @@ export default function EfficacyPage() {
         <section className="efficacy__results" aria-label="Composite response at Test of Cure">
           <div className="efficacy__comparison">
             <div className="efficacy__arm"><PatientArrow /><ResponseChart value={89} /></div>
-            <span className="efficacy__versus" aria-hidden="true">Vs</span>
+            <img className="efficacy__versus" src="/assets/img/vs-icon.svg" alt="" aria-hidden="true" />
             <div className="efficacy__arm efficacy__arm--comparator"><PatientArrow comparator /><ResponseChart value={68.4} comparator /></div>
           </div>
           <p className="efficacy__difference">Treatment difference: <span>20.6% (95% CI: 12.3, 29.5)</span></p>
@@ -161,7 +161,7 @@ export default function EfficacyPage() {
           </svg>
           <div className="efficacy__esbl-charts">
             <ResponseChart value={89} caption={<>62/70<br />of ZAYNICH-treated patients achieved composite response at Test of Cure</>} />
-            <span className="efficacy__versus" aria-hidden="true">Vs</span>
+            <img className="efficacy__versus" src="/assets/img/vs-icon.svg" alt="" aria-hidden="true" />
             <ResponseChart value={70} comparator caption={<>31/44<br />of meropenem-<br />treated patients.</>} />
           </div>
         </section>
