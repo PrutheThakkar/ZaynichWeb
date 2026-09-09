@@ -15,9 +15,9 @@ export default function ZaynichJourneyPage() {
       <section className="zaynich-approval" id="zaynichApproval" aria-labelledby="zaynichApprovalTitle">
         <div className="zaynich-approval__container">
           <header className="zaynich-approval__header">
-            <h3 className="zaynich-approval__title" id="zaynichApprovalTitle">
+            <h1 className="zaynich-approval__title" id="zaynichApprovalTitle">
               Relentless Discovery and Development Efforts Culminate in US FDA Approval of ZAYNICH<sup>®</sup>
-            </h3>
+            </h1>
 
             <p className="zaynich-approval__subtitle">A Watershed Moment for India’s Pharmaceutical Innovation</p>
 
