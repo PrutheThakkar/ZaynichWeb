@@ -88,7 +88,7 @@
   &__data-table {
     width: 100%; border-collapse: collapse; table-layout: fixed; font-size: clamp(18px, 1.7cqw, 24px); line-height: 1.3;
     th, td { padding: 16px 12px; font-weight: 400; text-align: center; background: transparent; border: 0; border-bottom: 1px solid #a75eb8; overflow-wrap: break-word; }
-    thead th { padding-top: 4px; padding-bottom: 22px; vertical-align: top; }
+    thead th { padding: 16px 12px; vertical-align: middle; }
     th:first-child { text-align: left; padding-left: 32px; }
     tr > :nth-child(2) { color: white; }
     tbody tr:last-child > * { border-bottom: 0; }
