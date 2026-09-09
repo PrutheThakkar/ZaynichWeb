@@ -189,12 +189,14 @@ export default function HeroSwiper({ slides = [] }) {
                 )}
                 <div className="brand-logo">
                   <div className="brand-logo__text">
-                    <p className="brand-logo__heading">
-                      <img className="brand-logo__wing" src="/assets/img/zaynich-wing-white.svg" alt="" aria-hidden="true" />
-                      <span className="brand-logo__name">ZAYNICH<sup>TM</sup></span> IS COMING
-                    </p>
-                    <p className="brand-logo__subtitle">cefepime and zidebactam</p>
-                    <p className="brand-logo__tagline">For Injection (3g)</p>
+                    <img className="brand-logo__wing" src="/assets/img/zaynich-wing-white.svg" alt="" aria-hidden="true" />
+                    <div className="brand-logo__copy">
+                      <p className="brand-logo__heading">
+                        <span className="brand-logo__name">ZAYNICH<sup>TM</sup></span> IS COMING
+                      </p>
+                      <p className="brand-logo__subtitle">cefepime and zidebactam</p>
+                      <p className="brand-logo__tagline">For Injection (3g)</p>
+                    </div>
                   </div>
                   <Link to="/mechanism-of-action/" className="hero-cta">
                     Explore the Science

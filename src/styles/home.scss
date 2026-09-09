@@ -166,7 +166,7 @@
   width: min(720px, 46vw);
   transform: translateY(-50%);
   pointer-events: none;
-  text-align: center;
+  text-align: left;
   transition:
     opacity 0.45s ease,
     transform 0.45s ease;
@@ -194,27 +194,30 @@
 }
 
 .brand-logo__text {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6em;
   color: #ffffff;
 }
 
+.brand-logo__wing {
+  display: block;
+  width: clamp(38px, 4.4vw, 68px);
+  height: auto;
+  flex-shrink: 0;
+}
+
+.brand-logo__copy {
+  text-align: left;
+}
+
 .brand-logo__heading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.15em;
   margin: 0;
   font-family: "Montserrat-semibold", "Montserrat", Arial, sans-serif;
   font-size: clamp(28px, 3vw, 46px);
   font-weight: 700;
   line-height: 1.1;
   text-transform: uppercase;
-}
-
-.brand-logo__wing {
-  display: block;
-  width: 1em;
-  height: auto;
-  flex-shrink: 0;
 }
 
 .brand-logo__name {
