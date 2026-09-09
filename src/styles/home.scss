@@ -201,7 +201,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.3em;
+  gap: 0.15em;
   margin: 0;
   font-family: "Montserrat-semibold", "Montserrat", Arial, sans-serif;
   font-size: clamp(28px, 3vw, 46px);
@@ -212,8 +212,9 @@
 
 .brand-logo__wing {
   display: block;
-  width: 0.45em;
+  width: 1em;
   height: auto;
+  flex-shrink: 0;
 }
 
 .brand-logo__name {
