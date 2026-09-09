@@ -105,7 +105,7 @@ a { color: inherit; }
   font-size: 13px;
 }
 .top-header p { margin: 0; }
-.top-header__links { display: flex; gap: 12px; }
+.top-header__links { display: flex; justify-content: flex-end; gap: 12px; }
 .top-header__links a {
   min-width: 180px;
   padding: 10px 16px;
@@ -210,7 +210,7 @@ a { color: inherit; }
 
 :root {
   --sidebar-width: 300px;
-  --top-header-height: 48px;
+  --top-header-height: 76px;
   --header-purple: #7a278e;
   --header-text: #293c46;
   --border-color: #eeeeee;
@@ -399,7 +399,7 @@ a { color: inherit; }
 
 :root {
   --sidebar-width: 300px;
-  --top-header-height: 48px;
+  --top-header-height: 76px;
   --mobile-header-height: 72px;
   --header-purple: #7a278e;
 }
@@ -416,9 +416,9 @@ a { color: inherit; }
   z-index: 1000;
 
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 6px;
 
   min-height: var(--top-header-height);
   padding: 8px 28px;
@@ -438,6 +438,7 @@ a { color: inherit; }
   &__links {
     display: flex;
     align-items: center;
+    justify-content: flex-end;
     gap: 14px;
 
     a {
