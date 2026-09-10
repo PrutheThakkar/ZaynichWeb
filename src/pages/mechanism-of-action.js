@@ -18,6 +18,10 @@ export default function MechanismOfActionPage() {
 
       <section className="img-wrapper">
         <div className="container">
+          <h1 className="img-wrapper__title">
+            Watch the Dual Mechanism of ZAYNICH
+          </h1>
+
           <AutoplayVideo
             src="/assets/vid/ZAYNICH%20MOA%20US%20080926.mp4"
             ariaLabel="ZAYNICH mechanism of action video"
