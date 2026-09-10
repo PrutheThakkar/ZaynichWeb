@@ -7,7 +7,7 @@ import React, { useEffect, useRef, useState } from "react";
  * refuse unmuted autoplay until the visitor has interacted with the page —
  * that's a browser policy, not something any code can force past).
  */
-export default function JourneyVideo() {
+export default function JourneyVideo({ src, title }) {
   const videoRef = useRef(null);
   const [soundPromptVisible, setSoundPromptVisible] = useState(false);
 
@@ -57,7 +57,7 @@ export default function JourneyVideo() {
       videoObserver.disconnect();
       journeyVideo.removeEventListener("canplay", handleCanPlay);
     };
-  }, []);
+  }, [src]);
 
   function handlePlayButtonClick() {
     const journeyVideo = videoRef.current;
@@ -68,7 +68,7 @@ export default function JourneyVideo() {
   }
 
   return (
-    <section className="journey-video" aria-label="The Zaynich journey video">
+    <section className="journey-video" aria-label={title || "The Zaynich journey video"}>
       <video
         className="journey-video__player"
         id="journeyVideo"
@@ -77,8 +77,9 @@ export default function JourneyVideo() {
         autoPlay
         playsInline
         preload="auto"
+        src={src}
+        aria-label={title || undefined}
       >
-        <source src="/assets/vid/R&D%20(Zaynich).mp4" type="video/mp4" />
         Your browser does not support the video element.
       </video>
 

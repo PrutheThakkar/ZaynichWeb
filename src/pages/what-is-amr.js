@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 import "../styles/home.scss";
 import "../styles/what-is-amr.scss";
 
@@ -8,7 +9,39 @@ import CountUp from "../components/CountUp";
 import AmrRiskMetric from "../components/AmrRiskMetric";
 import SafetyInformation from "../components/SafetyInformation";
 
-export default function WhatIsAmrPage() {
+/** Wraps every standalone "AMR" occurrence in a <span> so it keeps its accent styling. */
+function highlightAmr(text) {
+  if (!text) return text;
+  return String(text)
+    .split(/(AMR)/g)
+    .map((part, i) => (part === "AMR" ? <span key={i}>AMR</span> : part));
+}
+
+/** ACF only stores the formatted stat as one string (e.g. "4.95M", "35,000+"); split it
+ * back into the numeric/suffix pieces CountUp needs to animate. */
+function parseStatValue(raw) {
+  const str = String(raw ?? "").trim();
+  const match = str.match(/^([\d,.]+)\s*(.*)$/);
+  if (!match) {
+    return { count: 0, decimals: 0, suffix: str, separator: false };
+  }
+  const [, numberPart, suffix] = match;
+  const cleanNumber = numberPart.replace(/,/g, "");
+  const decimals = cleanNumber.includes(".") ? cleanNumber.split(".")[1].length : 0;
+  return {
+    count: parseFloat(cleanNumber) || 0,
+    decimals,
+    suffix: suffix || "",
+    separator: numberPart.includes(","),
+  };
+}
+
+export default function WhatIsAmrPage({ data }) {
+  const page = data?.allWpPage?.edges?.[0]?.node;
+  const amr = page?.whatIsAmr;
+  const stats = amr?.number ?? [];
+  const riskMetrics = amr?.appropriateNumber ?? [];
+
   return (
     <Layout title="Zaynich Component Layout">
       <InsideBanner
@@ -21,16 +54,12 @@ export default function WhatIsAmrPage() {
         <div className="amr-overview__container">
           <div className="amr-overview__heading">
             <h2 className="section-title" id="amrOverviewTitle">
-              What Is <span>AMR</span> and How Widespread Is It?
+              {highlightAmr(amr?.title)}
             </h2>
           </div>
 
           <div className="amr-overview__intro">
-            <p className="amr-overview__description">
-              Antimicrobial resistance (AMR) occurs when bacteria, viruses, fungi, and parasites evolve and no
-              longer respond to the medicines designed to kill them — turning once-treatable infections into
-              serious, sometimes untreatable, threats.
-            </p>
+            <p className="amr-overview__description">{amr?.paragraph}</p>
 
             <div className="amr-overview__who">
               <span aria-hidden="true"></span>
@@ -50,19 +79,22 @@ export default function WhatIsAmrPage() {
               </div>
 
               <div className="amr-stats__cards">
-                <article className="amr-stat-card">
-                  <CountUp className="amr-stat-card__number" count={4.95} decimals={2} suffix="M" />
-                  <span className="amr-stat-card__divider" aria-hidden="true"></span>
-                  <p className="amr-stat-card__text">deaths globally (2019) associated with bacterial AMR</p>
-                </article>
-
-                <article className="amr-stat-card">
-                  <CountUp className="amr-stat-card__number" count={1.27} decimals={2} suffix="M" />
-                  <span className="amr-stat-card__divider" aria-hidden="true"></span>
-                  <p className="amr-stat-card__text">
-                    deaths directly attributable to resistant infections (2019)
-                  </p>
-                </article>
+                {stats.slice(0, 2).map((stat, i) => {
+                  const value = parseStatValue(stat?.numberField);
+                  return (
+                    <article className="amr-stat-card" key={i}>
+                      <CountUp
+                        className="amr-stat-card__number"
+                        count={value.count}
+                        decimals={value.decimals}
+                        suffix={value.suffix}
+                        separator={value.separator}
+                      />
+                      <span className="amr-stat-card__divider" aria-hidden="true"></span>
+                      <p className="amr-stat-card__text">{stat?.numberBottomText}</p>
+                    </article>
+                  );
+                })}
               </div>
             </div>
 
@@ -76,23 +108,22 @@ export default function WhatIsAmrPage() {
               </div>
 
               <div className="amr-stats__cards">
-                <article className="amr-stat-card">
-                  <CountUp className="amr-stat-card__number" count={2.8} decimals={1} suffix="M+" />
-                  <span className="amr-stat-card__divider" aria-hidden="true"></span>
-                  <p className="amr-stat-card__text">resistant infections occur every year in the U.S.</p>
-                </article>
-
-                <article className="amr-stat-card">
-                  <CountUp
-                    className="amr-stat-card__number amr-stat-card__number--small"
-                    count={35000}
-                    decimals={0}
-                    suffix="+"
-                    separator
-                  />
-                  <span className="amr-stat-card__divider" aria-hidden="true"></span>
-                  <p className="amr-stat-card__text">deaths each year as a direct result</p>
-                </article>
+                {stats.slice(2, 4).map((stat, i) => {
+                  const value = parseStatValue(stat?.numberField);
+                  return (
+                    <article className="amr-stat-card" key={i}>
+                      <CountUp
+                        className={`amr-stat-card__number${value.separator ? " amr-stat-card__number--small" : ""}`}
+                        count={value.count}
+                        decimals={value.decimals}
+                        suffix={value.suffix}
+                        separator={value.separator}
+                      />
+                      <span className="amr-stat-card__divider" aria-hidden="true"></span>
+                      <p className="amr-stat-card__text">{stat?.numberBottomText}</p>
+                    </article>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -103,14 +134,10 @@ export default function WhatIsAmrPage() {
         <div className="amr-future__container">
           <div className="amr-future__content">
             <h2 className="section-title section-title--left" id="amrFutureTitle">
-              What Happens If 
-              <span> AMR </span>Goes Untreated
+              {highlightAmr(amr?.whatHappenTitle)}
             </h2>
 
-            <p className="amr-future__description">
-              Without new treatments and stronger stewardship, projections point to a steep and accelerating
-              human toll.
-            </p>
+            <p className="amr-future__description">{amr?.whatHappenParagraph}</p>
 
             <span className="amr-future__accent-line" aria-hidden="true"></span>
           </div>
@@ -146,27 +173,21 @@ export default function WhatIsAmrPage() {
         <div className="amr-risk__container">
           <div className="amr-risk__top">
             <div className="amr-risk__metrics">
-              <h3 className="amr-risk__eyebrow">When Appropriate Therapy Is Delayed</h3>
+              <h3 className="amr-risk__eyebrow">{amr?.whenAppropriateTitle}</h3>
 
               <div className="amr-risk__metric-grid">
-                <AmrRiskMetric
-                  progress={20}
-                  value="~20%"
-                  text="higher risk of in-hospital mortality or discharge to hospice"
-                  delay={0}
-                />
-                <AmrRiskMetric
-                  progress={70}
-                  value="~70%"
-                  text="increase in length of hospital stay"
-                  delay={180}
-                />
-                <AmrRiskMetric
-                  progress={65}
-                  value="~65%"
-                  text="increase in total in-hospital treatment costs"
-                  delay={360}
-                />
+                {riskMetrics.map((metric, i) => {
+                  const progress = parseFloat(metric?.number) || 0;
+                  return (
+                    <AmrRiskMetric
+                      key={i}
+                      progress={progress}
+                      value={`~${progress}%`}
+                      text={metric?.text}
+                      delay={i * 180}
+                    />
+                  );
+                })}
               </div>
 
               <p className="amr-risk__source">
@@ -204,3 +225,29 @@ export default function WhatIsAmrPage() {
     </Layout>
   );
 }
+
+export const query = graphql`
+  query WhatIsAmrPageQuery {
+    allWpPage(filter: { databaseId: { eq: 47 } }) {
+      edges {
+        node {
+          whatIsAmr {
+            title
+            paragraph
+            number {
+              numberField
+              numberBottomText
+            }
+            whatHappenTitle
+            whatHappenParagraph
+            whenAppropriateTitle
+            appropriateNumber {
+              number
+              text
+            }
+          }
+        }
+      }
+    }
+  }
+`;
