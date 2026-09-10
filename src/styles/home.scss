@@ -138,7 +138,7 @@
   @media (max-width:500px) {
     object-position: 21% center;
   }
- 
+
 }
 
 /* Optional dark transition when changing slides */
@@ -191,7 +191,7 @@
       right: 24%;
       bottom: 40px;
     }
-   
+
 }
 
 .brand-logo__text {
@@ -222,14 +222,21 @@
 }
 
 .brand-logo__name {
-  font-family: "Montserrat-bold";
+  font-family: "Coplette";
   font-size: 60px;
   font-weight: 900;
   letter-spacing: 3px;
 
   sup {
-    font-size: 0.3em;
+    font-size: 0.26em;
     font-family: "AcuminVariableConcept";
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: 0;
+    vertical-align: text-top;
+    position: relative;
+    top: 0;
+    margin-left: 0.12em;
   }
 }
 
@@ -1269,5 +1276,93 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .autoplay-video__play-button {
     animation: none;
+  }
+}
+/* Stack the banner artwork and copy on phones without desktop offsets. */
+@media (max-width: 800px) {
+  .hero-stage.bacteria-hero-rotator {
+    --mobile-art-height: clamp(320px, 100vw, 440px);
+    --mobile-hero-purple: #382052;
+    height: calc(var(--mobile-art-height) + 270px);
+    min-height: 0;
+    background: var(--mobile-hero-purple);
+
+    .bacteria-hero-slide {
+      background: var(--mobile-hero-purple);
+    }
+
+    .hero-transition-overlay {
+      background: var(--mobile-hero-purple);
+    }
+
+    .bacteria-img-bg {
+      inset: 0 0 auto;
+      width: 100%;
+      max-width: none;
+      height: var(--mobile-art-height);
+      transform: none;
+      /* Blend the image floor into the purple copy area. */
+      -webkit-mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+      mask-image: linear-gradient(to bottom, #000 82%, transparent 100%);
+    }
+
+    .bacteria-img {
+      object-fit: cover;
+      /* Shift the banner subject right while keeping the image edge to edge. */
+      object-position: left center;
+    }
+
+    .brand-logo {
+      top: var(--mobile-art-height);
+      right: 0;
+      bottom: auto;
+      left: 0;
+      width: 100%;
+      padding: 16px 20px 0;
+      box-sizing: border-box;
+      text-align: center;
+      transform: none;
+    }
+
+    .brand-logo__text {
+      position: relative;
+      display: block;
+      width: fit-content;
+      max-width: 100%;
+      margin-inline: auto;
+    }
+
+    .brand-logo__wing {
+      position: absolute;
+      top: 3px;
+      left: 0;
+      width: 28px;
+    }
+
+    .brand-logo__copy {
+      text-align: center;
+    }
+
+    .brand-logo__heading {
+      font-size: 26px;
+    }
+
+    .brand-logo__name {
+      display: block;
+      padding-left: 32px;
+      font-size: clamp(30px, 8vw, 42px);
+      letter-spacing: 1px;
+      white-space: nowrap;
+      margin-bottom: 6px;
+    }
+
+    .brand-logo__subtitle {
+      margin-top: 8px;
+      font-size: 18px;
+    }
+
+    .hero-cta {
+      margin-top: 16px;
+    }
   }
 }

@@ -52,7 +52,7 @@
   display: block;
   margin-bottom: 16px;
   font-size: 1em;
-  font-family: "Montserrat-bold";
+  font-family: "Coplette";
 }
 .efficacy__description {
   max-width: 975px;
@@ -413,8 +413,7 @@
   width: 48px;
   height: 48px;
   flex-shrink: 0;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 .efficacy__table-frame--pathogens .efficacy__data-table th:first-child {
   padding-left: 4px;
@@ -765,4 +764,6 @@
   .efficacy__pathogens .efficacy__table-scroll {
     padding-left: 26px;
   }
-}/*# sourceMappingURL=efficacy.css.map */
+}
+
+/*# sourceMappingURL=efficacy.css.map */
