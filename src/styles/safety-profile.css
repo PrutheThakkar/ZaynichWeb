@@ -579,7 +579,8 @@
   top: 50px;
   width: 480px;
   height: auto;
-  opacity: 0.05;
+  filter: brightness(0) invert(1);
+  opacity: 0.65;
   z-index: -1;
   pointer-events: none;
 }
@@ -848,8 +849,7 @@
 .safety-profile__precautions-grid {
   max-width: 1185px;
   grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
-  -moz-column-gap: 50px;
-       column-gap: 50px;
+  column-gap: 50px;
   row-gap: 48px;
 }
 .safety-profile__precautions-grid h3 {
@@ -887,8 +887,7 @@
 }
 @container safety-page (max-width: 1000px) {
   .safety-profile__precautions-grid {
-    -moz-column-gap: 28px;
-         column-gap: 28px;
+    column-gap: 28px;
   }
   .safety-profile__hypersensitivity {
     padding-right: 24px;
@@ -937,4 +936,6 @@
   .safety-profile__precautions-grid h3 {
     font-size: 19px;
   }
-}/*# sourceMappingURL=safety-profile.css.map */
+}
+
+/*# sourceMappingURL=safety-profile.css.map */

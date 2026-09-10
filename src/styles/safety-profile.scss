@@ -238,7 +238,7 @@
     > h2 {  margin-bottom: 40px; }
   }
   &__renal-copy { max-width: 1030px; margin: 0 auto 44px; font-size: clamp(18px, 1.4cqw, 20px); line-height: 1.3; p + p { margin-top: 24px; } }
-  &__kidney-watermark { position: absolute; left: -75px; top: 50px; width: 480px; height: auto; opacity: .05; z-index: -1; pointer-events: none; }
+  &__kidney-watermark { position: absolute; left: -75px; top: 50px; width: 480px; height: auto; filter: brightness(0) invert(1); opacity: .65; z-index: -1; pointer-events: none; }
   &__dosing-link {
     display: block;
     max-width: 530px;
@@ -422,4 +422,3 @@
 .safety-profile__additional > h2.safety-profile__pill {
   // max-width: 1200px;
 }
-
