@@ -266,3 +266,33 @@
     &__pathogens .efficacy__table-scroll { padding-left: 26px; }
   }
 }
+
+// Compact clinical tables on phones while retaining horizontal scrolling.
+@media (max-width: 600px) {
+  .efficacy {
+    &__outcomes, &__pathogens { padding: 28px 12px !important; }
+    &__table-scroll { padding-top: 10px; padding-bottom: 12px; }
+    &__table-frame { padding: 10px 8px; border-radius: 20px; }
+    &__table-frame--outcomes {
+      min-width: 460px;
+      &::before { left: calc(34% - 3px); width: calc(22% - 4px); border-radius: 14px; }
+      .efficacy__data-table th:first-child { padding-left: 6px; }
+    }
+    .efficacy__data-table {
+      font-size: 12px;
+      line-height: 1.35;
+      th, td, thead th { padding: 8px 6px; }
+    }
+    &__pathogens .efficacy__table-scroll { padding-top: 12px; padding-left: 18px; }
+    &__table-frame--pathogens {
+      --pathogen-frame-padding: 8px;
+      min-width: 360px;
+      border-radius: 14px;
+      &::before { top: -10px; bottom: -10px; width: calc(25% - 4px); border-radius: 14px; }
+      .efficacy__data-table th:first-child { padding-left: 16px; }
+      .efficacy__data-table tbody th { height: 44px; }
+      .efficacy__data-table tbody th, .efficacy__data-table tbody td { padding-top: 6px; padding-bottom: 6px; }
+      .efficacy__pathogen-icon { width: 30px; height: 34px; left: calc(-1 * var(--pathogen-frame-padding) - 16px); }
+    }
+  }
+}

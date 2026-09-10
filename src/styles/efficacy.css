@@ -766,4 +766,66 @@
   }
 }
 
+@media (max-width: 600px) {
+  .efficacy__outcomes, .efficacy__pathogens {
+    padding: 28px 12px !important;
+  }
+  .efficacy__table-scroll {
+    padding-top: 10px;
+    padding-bottom: 12px;
+  }
+  .efficacy__table-frame {
+    padding: 10px 8px;
+    border-radius: 20px;
+  }
+  .efficacy__table-frame--outcomes {
+    min-width: 460px;
+  }
+  .efficacy__table-frame--outcomes::before {
+    left: calc(34% - 3px);
+    width: calc(22% - 4px);
+    border-radius: 14px;
+  }
+  .efficacy__table-frame--outcomes .efficacy__data-table th:first-child {
+    padding-left: 6px;
+  }
+  .efficacy .efficacy__data-table {
+    font-size: 12px;
+    line-height: 1.35;
+  }
+  .efficacy .efficacy__data-table th, .efficacy .efficacy__data-table td, .efficacy .efficacy__data-table thead th {
+    padding: 8px 6px;
+  }
+  .efficacy__pathogens .efficacy__table-scroll {
+    padding-top: 12px;
+    padding-left: 18px;
+  }
+  .efficacy__table-frame--pathogens {
+    --pathogen-frame-padding: 8px;
+    min-width: 360px;
+    border-radius: 14px;
+  }
+  .efficacy__table-frame--pathogens::before {
+    top: -10px;
+    bottom: -10px;
+    width: calc(25% - 4px);
+    border-radius: 14px;
+  }
+  .efficacy__table-frame--pathogens .efficacy__data-table th:first-child {
+    padding-left: 16px;
+  }
+  .efficacy__table-frame--pathogens .efficacy__data-table tbody th {
+    height: 44px;
+  }
+  .efficacy__table-frame--pathogens .efficacy__data-table tbody th, .efficacy__table-frame--pathogens .efficacy__data-table tbody td {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+  .efficacy__table-frame--pathogens .efficacy__pathogen-icon {
+    width: 30px;
+    height: 34px;
+    left: calc(-1 * var(--pathogen-frame-padding) - 16px);
+  }
+}
+
 /*# sourceMappingURL=efficacy.css.map */
