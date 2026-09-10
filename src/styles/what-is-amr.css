@@ -669,7 +669,7 @@
 .amr-risk__source {
   max-width: 940px;
   margin: 32px auto 0;
-  color: rgba(51, 38, 54, 0.62);
+  color: #000;
   font-style: italic;
   line-height: 1.35;
   text-align: center;
