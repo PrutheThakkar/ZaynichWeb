@@ -397,16 +397,6 @@ section{
       }
     }
 
-    &__overlay {
-      background:
-        linear-gradient(
-          180deg,
-          rgba(10, 25, 38, 0.18) 0%,
-          rgba(10, 25, 38, 0.42) 46%,
-          rgba(10, 25, 38, 0.9) 100%
-        );
-    }
-
     &__content {
       align-items: flex-end;
 

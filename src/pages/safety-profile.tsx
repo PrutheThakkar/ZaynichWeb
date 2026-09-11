@@ -134,7 +134,10 @@ export default function SafetyProfilePage({ data }: { data: any }) {
           {bannerImage ? (
             <GatsbyImage image={bannerImage} alt={bannerAlt} />
           ) : (
-            <img src="/assets/img/Zaynivch%20T%20Banners_Safety.jpg" alt={bannerAlt} />
+            <picture>
+              <source media="(max-width: 768px)" srcSet="/assets/img/Zaynivch%20T%20Banners_m-safety.jpg" />
+              <img src="/assets/img/Zaynivch%20T%20Banners_Safety.jpg" alt={bannerAlt} />
+            </picture>
           )}
         </div>
 
