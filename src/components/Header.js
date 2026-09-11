@@ -260,7 +260,7 @@ export default function Header() {
               <span className="nav-icon" aria-hidden="true">
                 <img src="/assets/img/journey-icon.svg" alt="" />
               </span>
-              <span className="nav-label">The Zaynich Journey</span>
+              <span className="nav-label">The Zaynich<sup>TM</sup> Journey</span>
             </Link>
           </div>
 
@@ -274,7 +274,7 @@ export default function Header() {
               <span className="nav-icon" aria-hidden="true">
                 <img src="/assets/img/how.svg" alt="" />
               </span>
-              <span className="nav-label">How Zaynich Works?</span>
+              <span className="nav-label">How Zaynich<sup>TM</sup> Works?</span>
               <span className="chevron" aria-hidden="true">
                 ⌄
               </span>

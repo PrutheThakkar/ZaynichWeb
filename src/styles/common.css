@@ -62,7 +62,6 @@ h1 {
   font-size: clamp(26px, 3.2vw, 38px);
   font-weight: 700;
   line-height: 1.05;
-  text-transform: uppercase;
 }
 
 h2 {
@@ -346,7 +345,7 @@ section {
        object-position: center top;
   }
   .inside-banner__overlay {
-    background: linear-gradient(180deg, rgba(10, 25, 38, 0.18) 0%, rgba(10, 25, 38, 0.42) 46%, rgba(10, 25, 38, 0.9) 100%);
+    /* background: linear-gradient(180deg, rgba(10, 25, 38, 0.18) 0%, rgba(10, 25, 38, 0.42) 46%, rgba(10, 25, 38, 0.9) 100%); */
   }
   .inside-banner__content {
     align-items: flex-end;

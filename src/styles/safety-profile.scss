@@ -12,13 +12,18 @@
   p { margin: 0; }
 
   &__banner {
-    min-height: 240px;
-    height: clamp(200px, 20.5cqw, 300px);
-    display: grid;
-    place-items: center;
+    height: 380px;
+    overflow: hidden;
     background: #7d2b8b;
-    color: white;
-    font: 400 clamp(64px, 11cqw, 160px)/1 Arial, sans-serif;
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 1920px) { height: 350px; }
+    @media (max-width: 1680px) { height: 300px; }
+    @media (max-width: 1440px) { height: 250px; }
+    @media (max-width: 1366px) { height: 200px; }
+    @media (max-width: 768px) {
+      height: auto;
+      img { height: auto; object-fit: contain; }
+    }
   }
 
   &__study {
@@ -98,7 +103,7 @@
 
   @container safety-page (max-width: 1100px) { &__people { display: none; } }
   @container safety-page (max-width: 600px) {
-    &__banner { min-height: 160px; height: 180px; }
+    &__banner { height: auto; img { height: auto; object-fit: contain; } }
     &__study { padding: 30px 0 36px; h1 { margin-bottom: 28px; } }
     &__intro { width: calc(100% - 32px); padding: 22px 16px; }
     &__desktop-break { display: none; }
@@ -248,7 +253,7 @@
     border-radius: 50px;
     background: linear-gradient(#d5bde3 15%, #e5d7ee 60%, white);
     box-shadow: 0 4px 3px #0002;
-    color: var(--safety-purple);
+    color: #000000;
     font-size: clamp(18px, 1.4cqw, 20px);
     text-decoration: none;
     line-height: 1.25;

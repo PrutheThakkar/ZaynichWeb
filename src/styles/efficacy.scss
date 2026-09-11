@@ -11,12 +11,25 @@
   sup { font-size: .55em; vertical-align: super; }
   h1, p { overflow-wrap: break-word; }
 
-  &__banner { display: grid; place-items: center; height: clamp(180px, 21cqw, 302px); background: #7d2b8b; color: white; font: 400 clamp(72px, 11cqw, 160px)/1 Arial, sans-serif; }
+  &__banner { display: block; height: 380px; background: #7d2b8b; overflow: hidden;
+    picture { display: block; width: 100%; height: 100%; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 1920px) { height: 350px; }
+    @media (max-width: 1680px) { height: 300px; }
+    @media (max-width: 1440px) { height: 250px; }
+    @media (max-width: 1366px) { height: 200px; }
+    @media (max-width: 768px) {
+      height: auto;
+      picture, img { height: auto; object-fit: contain; }
+    }
+  }
   &__intro { padding: clamp(32px, 3.5cqw, 52px) 24px 60px !important; background: radial-gradient(ellipse at 65% 35%, #fff, #fcf5ff 50%, #f5e9fc); }
-  &__intro h1, &__headline { max-width: 1100px; margin: 0 auto; color: var(--efficacy-purple); font-size: clamp(28px, 3.6cqw, 52px); line-height: 1.23; font-weight: 400; }
+  &__intro h1, &__headline { max-width: 1800px; margin: 0 auto; color: var(--efficacy-purple); font-size: clamp(28px, 3.6cqw, 52px); line-height: 1.23; font-weight: 400; white-space: nowrap; }
   &__intro h1 { font-family: inherit; text-transform: none; letter-spacing: normal; }
   p.efficacy__headline { margin: 20px auto 0; }
-  &__brand { display: block; margin-bottom: 16px; font-size: 1em; font-family: "Coplette";}
+  &__brand { display: block; margin-bottom: 16px; font-size: 1em; font-family: "Coplette";
+    sup { font-family: "Montserrat", Arial, sans-serif; font-weight: 400; }
+  }
   &__description { max-width: 975px; margin: 42px auto 0 !important; font-size: clamp(18px, 1.7cqw, 24px); line-height: 1.35; }
   &__results { padding: 60px 24px !important; border-bottom: 12px solid #fcf3ff; }
   &__comparison { display: grid; grid-template-columns: minmax(0, 1fr) 90px minmax(0, 1fr); gap: 16px; align-items: start; max-width: 1400px; margin: 0 auto; }
@@ -49,6 +62,7 @@
     &__versus { margin-top: 90px; }
     &__chart > p { min-height: 2.4em; margin-top: 18px; }
     &__desktop-break { display: none; }
+    &__intro h1, &__headline { white-space: normal; }
   }
   @container efficacy (max-width: 560px) {
     &__intro { padding: 32px 20px 36px !important; }

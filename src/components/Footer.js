@@ -13,7 +13,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             aria-label="Visit Wockhardt website"
           >
-            <img src="/assets/img/wockhardt-logo.svg" alt="Wockhardt" />
+            <img src="/assets/img/wockhardt-logo-new.svg" alt="Wockhardt" />
           </a>
 
           <nav className="site-footer__nav" aria-label="Footer navigation">
@@ -25,7 +25,7 @@ export default function Footer() {
         </div>
 
         <div className="site-footer__legal">
-          <p>ZAYNICH is a trademark of Wockhardt Bio AG © 2026 Wockhardt Bio AG. All Rights Reserved.</p>
+          <p>ZAYNICH<sup>TM</sup> is a trademark of Wockhardt Bio AG © 2026 Wockhardt Bio AG. All Rights Reserved.</p>
         </div>
       </div>
     </footer>

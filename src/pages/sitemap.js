@@ -16,11 +16,11 @@ const SITEMAP_SECTIONS = [
     ],
   },
   {
-    label: "The Zaynich Journey",
+    label: "The Zaynich™ Journey",
     to: "/the-zaynich-journey/",
   },
   {
-    label: "How Zaynich Works?",
+    label: "How Zaynich™ Works?",
     links: [
       { label: "Broad Spectrum", to: "/broad-spectrum/" },
       { label: "Mechanism of Action", to: "/mechanism-of-action/" },

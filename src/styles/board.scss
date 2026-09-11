@@ -408,9 +408,11 @@ box-shadow: 4px 0 2px rgba(37, 28, 43, 0.34), -2px 0 4px rgba(37, 28, 43, 0.1) !
   }
 }
 
-/* Below tablet, columns get too cramped to shrink further — fall back to a
-   scrollable, tighter-spaced table instead of squeezing 8 columns to fit. */
-@media (max-width: 768px) {
+/* Below tablet — including a rotated/landscape phone — columns get too
+   cramped for the fixed 11.5%-per-column desktop layout to hold every
+   header without wrapping/clipping. Fall back to a scrollable table sized
+   to its own content instead of squeezing 8 columns to fit. */
+@media (max-width: 1024px) {
   .spectrum-table {
     table-layout: auto;
     min-width: 720px;
@@ -421,6 +423,7 @@ box-shadow: 4px 0 2px rgba(37, 28, 43, 0.34), -2px 0 4px rgba(37, 28, 43, 0.1) !
   .spectrum-table thead th {
     min-height: 56px;
     padding: 8px 6px;
+    white-space: normal;
   }
 
   .spectrum-table tbody th,
